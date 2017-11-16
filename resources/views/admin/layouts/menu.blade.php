@@ -16,13 +16,25 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> --- Điều Khiển</a>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Món Ăn<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{route('danhSachMonAn')}}">Danh Sach Các Món Ăn</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('themMonAn')}}">Thêm Món Ăn</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Thể Loại<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sach Các Thể Loại</a>
+                                    <a href="{{route('danhSachTheLoai')}}">Danh Sach Các Thể Loại</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Thể Loại</a>
+                                    <a href="{{route('themTheLoai')}}">Thêm Thể Loại</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -55,10 +67,10 @@
                             <a href="#"><i class="fa fa-bullhorn"></i> --- Món Ăn Theo Công Dụng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sách Các Công Dụng</a>
+                                    <a href="{{route('danhSachCongDung')}}">Danh Sách Các Công Dụng</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Công Dụng</a>
+                                    <a href="{{route('themCongDung')}}">Thêm Công Dụng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
