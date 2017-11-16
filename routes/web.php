@@ -1,5 +1,4 @@
 <?php
-use App\Models\TheLoai;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,24 +10,6 @@ use App\Models\TheLoai;
 |
  */
 
-Route::get('/', function () {
-	return view('customer.trangchu');
-});
-
-//Admin
-Route::get('db', function () {
-	$theloai = TheLoai::all();
-	return $theloai;
-});
-Route::get('admin/user/danhsach', function () {
-	return view('admin.taikhoan.danhsach');
-});
-Route::get('admin/user/them', function () {
-	return view('admin.taikhoan.them');
-});
-Route::get('admin/user/sua', function () {
-	return view('admin.taikhoan.sua');
-});
 //Customer
 Route::get('trangchu', function () {
 	return view('customer.trangchu');
