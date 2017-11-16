@@ -20,9 +20,6 @@ Route::get('db', function () {
 	$theloai = TheLoai::all();
 	return $theloai;
 });
-Route::get('admin/theloai/danhsach', function () {
-	return view('admin.theloai.danhsach');
-});
 Route::get('admin/user/danhsach', function () {
 	return view('admin.taikhoan.danhsach');
 });
