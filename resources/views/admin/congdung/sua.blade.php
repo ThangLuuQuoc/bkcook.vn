@@ -1,7 +1,7 @@
 @extends('admin.layouts.index')
 @section('content')
 <!-- Page Content -->
-<div id="page-wrapper">
+ <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -11,40 +11,21 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
-                            <div class="form-group">
-                                <label>Category Parent</label>
-                                <select class="form-control">
-                                    <option value="0">Please Choose Category</option>
-                                    <option value="">Tin Tức</option>
-                                </select>
+                        <form action="{{route('suaCongDung',$congdung->id)}}" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            
+                                <div class="form-group">
+                                    <label>Category Name1</label>
+                                    <input class="form-control" name="name1" required value="{{$congdung->ten}}" placeholder="nhập tên công dụng"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category name2</label>
+                                    <input class="form-control" name="name2" value="{{$congdung->tenkhongdau}}" required placeholder="nhập tên không dấu"/>
+                                </div>
+                             <div class="form-group">
+                                <span class="text-info">@if(Session::has('thanhcong')) {{Session::get('thanhcong')}} @endif</span>
                             </div>
-                            <div class="form-group">
-                                <label>Category Name</label>
-                                <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
-                            </div>
-                            <div class="form-group">
-                                <label>Category Order</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Order" />
-                            </div>
-                            <div class="form-group">
-                                <label>Category Keywords</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
-                            </div>
-                            <div class="form-group">
-                                <label>Category Description</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Category Status</label>
-                                <label class="radio-inline">
-                                    <input name="rdoStatus" value="1" checked="" type="radio">Visible
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="rdoStatus" value="2" type="radio">Invisible
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">Category Edit</button>
+                            <button type="submit" class="btn btn-default">save</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         <form>
                     </div>
@@ -53,4 +34,5 @@
             </div>
             <!-- /.container-fluid -->
 </div>
+<!-- /#page-wrapper -->
 @endsection

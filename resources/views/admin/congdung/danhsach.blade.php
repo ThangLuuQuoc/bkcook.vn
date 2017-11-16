@@ -1,48 +1,53 @@
 @extends('admin.layouts.index')
 @section('content')
+<script type="text/javascript">
+    function checkout(){
+            return confirm('bạn có muốn xoá không?');
+        }
+
+
+</script>
 <!-- Page Content -->
 <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
+                        <h1 class="page-header">Công Dụng
                             <small>List</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                    @if(isset($congdung))
+                    
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>ID</th>
                                 <th>Name</th>
-                                <th>Price</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th>ten khong dau</th>
+                                 <th>date</th>
+                                <!-- <th>Status</th> -->
+                                <th>Add</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX" align="center">
-                                <td>1</td>
-                                <td>Áo Thun Nana</td>
-                                <td>200.000 VNĐ</td>
-                                <td>3 Minutes Age</td>
-                                <td>Hiện</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-                            </tr>
+                            @foreach($congdung as $cd)
                             <tr class="even gradeC" align="center">
-                                <td>2</td>
-                                <td>Áo Thun Polo</td>
-                                <td>250.000 VNĐ</td>
-                                <td>1 Hours Age</td>
-                                <td>Ẩn</td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+                                <td>{{$cd->ten}}</td>
+                                <td>{{$cd->tenkhongdau}}</td>
+                                <td>{{$cd->created_at}}</td>
+                                <!-- <td>Ẩn</td> -->
+                                <td class="center"><i class="fa fa-plus fa-fw"></i><a href="{{route('themCongDung')}}"> Add</a></td>
+                                <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaCongDung',$cd->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaCongDung',$cd->id)}}">Edit</a></td>
                             </tr>
+                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <h3 class="text-muted">không có loại công dụng nào</h3>
+                    @endif
                 </div>
                 <!-- /.row -->
             </div>
