@@ -12,6 +12,16 @@
 Route::get('/', function () {
 	return view('customer.trangchu');
 });
+
+Route::group(['prefix' => 'user'], function () {
+	Route::get('danhsach', 'UserController@getDanhSach');
+	Route::get('them', 'UserController@getThem');
+	Route::post('them', 'UserController@postThem');
+	Route::get('sua/{id}', 'UserController@getSua');
+	Route::post('sua/{id}', 'UserController@postSua');
+	Route::get('xoa/{id}', 'UserController@getXoa');
+});
+
 Route::get('admin/theloai/danhsach', [
 	'as' => 'danhSachTheLoai',
 	'uses' => 'TheLoaiController@getDanhSachTheLoai',
@@ -174,3 +184,45 @@ Route::get('dangbai', function () {
 // 	print_r($monan);
 // 	echo "<br />";
 // });
+
+// Route mon an
+Route::get('admin/monan/danhsach', [
+	'as' => 'danhSachMonAn',
+	'uses' => 'MonAnController@getDanhSachMonAn',
+]);
+
+Route::get('admin/monan/them', [
+	'as' => 'themMonAn',
+	'uses' => 'MonAnController@getViewThemMonAn',
+]);
+
+Route::post('admin/monan/them', [
+	'as' => 'themMonAn',
+	'uses' => 'MonAnController@themMonAn',
+]);
+
+Route::get('admin/monan/sua/{id}', [
+	'as' => 'suaMonAn',
+	'uses' => 'MonAnController@getViewSuaMonAn',
+]);
+
+Route::post('admin/monan/sua/{id}', [
+	'as' => 'suaMonAn',
+	'uses' => 'MonAnController@suaMonAn',
+]);
+
+Route::get('admin/monan/xoa/{id}', [
+	'as' => 'xoaMonAn',
+	'uses' => 'MonAnController@xoaMonAn',
+]);
+
+// Route buoc nau
+Route::get('admin/monan/thembuocnau/{id}', [
+	'as' => 'themBuocNau',
+	'uses' => 'MonAnController@getViewThemBuocNau',
+]);
+
+Route::post('admin/monan/thembuocnau/{id}', [
+	'as' => 'themBuocNau',
+	'uses' => 'MonAnController@themBuocNau',
+]);

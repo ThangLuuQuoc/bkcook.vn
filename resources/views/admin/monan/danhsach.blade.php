@@ -2,7 +2,7 @@
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">
-    <div class="container-fluid">     
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Món Ăn
@@ -19,7 +19,7 @@
                 @endif
             </div>
             <!-- /.col-lg-12 -->
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">         
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
                         <th>ID</th>
@@ -46,7 +46,7 @@
                 </thead>
                 <tbody>
                     @foreach($monan as $ma)
-                    <tr class="odd gradeX" align="center">                      
+                    <tr class="odd gradeX" align="center">
                         <td>{{$ma -> id}}</td>
                         <td>{{$ma -> ten_monan}}</td>
                         <td>{{$ma -> gioithieu}}</td>
@@ -71,7 +71,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>       
+        </div>
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
