@@ -1,7 +1,6 @@
 @extends('customer.layouts.master')
 @section('content')
-@include('customer.layouts.home')
-    <section id="theloai" class="theloai">
+<section id="theloai" class="theloai">
         <div class="container">
             <div class="row">
                 <div class="service_border_raund text-center"></div>

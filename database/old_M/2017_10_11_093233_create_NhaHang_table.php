@@ -14,8 +14,11 @@ class CreateNhaHangTable extends Migration {
 		Schema::create('NhaHang', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('ten');
+			$table->string('taikhoan')->unique();
+			$table->string('password')->unique();
 			$table->string('tenkhongdau');
 			$table->integer('luotxem');
+			$table->integer('danhgia');
 			$table->string('lienhe');
 			$table->string('vichi');
 			$table->text('gioithieu');

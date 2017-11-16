@@ -10,4 +10,7 @@ class NhaHang extends Model {
 	public function nhahanglienket() {
 		return $this->hasMany('App\Models\NhaHangLienKet', 'id_nhahang', 'id');
 	}
+	public function userpost() {
+		return $this->hasMany('App\Models\UserPost', 'id_nhahang', 'id');
+	}
 }

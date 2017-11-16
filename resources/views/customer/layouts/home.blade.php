@@ -7,27 +7,22 @@
                         <div class="single_home_slider">
                             <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                 <h1>ẨM THỰC QUANH TA</h1>
-
                             </div>
                         </div>
                         <div class="single_home_slider">
                             <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                 <h1>MÓN NGON MỖI NGÀY</h1>
-                           
                                 <div class="home_btn">
                                     <a href="" class="btn btn-primary">TÌM HIỂU THÊM</a>
                                 </div>
-
                             </div>
                         </div>
                         <div class="single_home_slider">
                             <div class="main_home wow fadeInUp" data-wow-duration="700ms">
                                 <h1>CÔNG THỨC ĐỘC ĐÁO</h1>
-                                
                                 <div class="home_btn">
                                     <a href="" class="btn btn-primary">TÌM HIỂU THÊM</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>

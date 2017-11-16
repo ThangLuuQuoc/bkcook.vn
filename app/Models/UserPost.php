@@ -19,4 +19,7 @@ class UserPost extends Model {
 	public function loaimon() {
 		return $this->belongsTo('App\Models\LoaiMon', 'id_loaimon', 'id');
 	}
+	public function nhahang() {
+		return $this->belongsTo('App\Models\NhaHang', 'id_nhahang', 'id');
+	}
 }

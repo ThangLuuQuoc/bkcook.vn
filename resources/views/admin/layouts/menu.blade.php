@@ -82,7 +82,7 @@
                                     <a href="#">Danh Sach Nhà Hàng Liên Kết</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Nhà Hnagf Liên Kết</a>
+                                    <a href="#">Thêm Nhà Hàng Liên Kết</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -91,10 +91,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> --- Tài Khoản Người Dùng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sách Tài Khoản Người Dùng</a>
+                                    <a href="admin/user/danhsach">Danh Sách Tài Khoản Người Dùng</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Tài Khoản Người Dùng</a>
+                                    <a href="admin/user/them">Thêm Tài Khoản Người Dùng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

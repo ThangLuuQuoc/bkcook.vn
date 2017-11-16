@@ -42,10 +42,10 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li><a href="#congdung">Công Dụng</a></li>
                                     <li><a href="#monan">Món Ăn</a></li>
                                     <li><a href="dangbai">Bài Viết</a></li>
                                     <li><a href="#nhahang">Nhà Hàng Liên Kết</a></li>
-                                    <li><a href="#thanhvien">Top Thành Viên</a></li>
                                     <li><a href="dangnhap">Đăng Nhập</a></li>
                                     <li><a href="dangky">Đăng Ký</a></li>
 
