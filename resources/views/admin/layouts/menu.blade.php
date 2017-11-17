@@ -113,13 +113,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> --- Tài Khoản Người Dùng<span class="fa arrow"></span></a>
+                            <a href="admin/info"><i class="fa fa-users fa-fw"></i> --- Tài Khoản Người Dùng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sách Tài Khoản Người Dùng</a>
+                                    <a href="user/danhsach">Danh Sách Tài Khoản Người Dùng</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Tài Khoản Người Dùng</a>
+                                    <a href="user/them">Thêm Tài Khoản Người Dùng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

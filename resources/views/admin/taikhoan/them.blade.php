@@ -12,10 +12,10 @@
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
                         <form action="" method="POST">
-
+                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <div class="form-group">
                                 <label>Họ Và Tên</label>
-                                <input class="form-control" name="fullname" placeholder="Họ và Tên" />
+                                <input class="form-control" name="fullname" placeholder="Họ và Tên" required="" />
                             </div>
                             <div class="form-group">
                                 <label>Giới Tính : </label>
@@ -40,21 +40,25 @@
                             <hr class="alert-warning">
                             <div class="form-group">
                                 <label>Địa Chỉ Gmail</label>
-                                <input type="email" class="form-control" name="mail" placeholder="Gmail" required="" />
+                                <input type="email" class="form-control" name="email" placeholder="Gmail" required="" />
                             </div>
                             <div class="form-group">
-                                <label>Tên Đăng Nhập</label>
-                                <input type="text" class="form-control" name="tendangnhap" placeholder="Tên Đăng Nhập" required="" />
+                                <label>Tên Tài Khoản</label>
+                                <input type="text" class="form-control" name="tentaikhoan" placeholder="Tên Đăng Nhập" required="" />
                             </div>
                             <div class="form-group">
                                 <label>Mật Khẩu</label>
-                                <input class="form-control" name="password" placeholder="Mật Khẩu" />
+                                <input type="password" class="form-control" name="password" placeholder="Mật Khẩu" required="" />
                             </div>
                             <div class="form-group">
                                 <label>Xác Nhận Mật Khẩu</label>
-                                <input class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
+                                <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
                             </div>
                             <hr class="alert-warning">
+                            <div class="form-group">
+                                <label>Ảnh Đại Diện<label>
+                                <input type="file" name="Hinh" class="form-control" />
+                            </div>
 
                             <div class="form-group">
                                 <label>Nổi Bật</label>

@@ -21,6 +21,15 @@ Route::group(['prefix' => 'user'], function () {
 	Route::post('sua/{id}', 'UserController@postSua');
 	Route::get('xoa/{id}', 'UserController@getXoa');
 });
+Route::group(['prefix' => 'nhahang'], function () {
+	Route::get('danhsach', 'NhaHangController@getDanhSach');
+	Route::get('them', 'NhaHangController@getThem');
+	Route::post('them', 'NhaHangController@postThem');
+	Route::get('xoa', 'NhaHangController@getXoa');
+	Route::get('themmenu', 'NhaHangController@getThemMenu');
+	Route::post('themmenu', 'NhaHangController@postThemMenu');
+
+});
 
 Route::get('admin/theloai/danhsach', [
 	'as' => 'danhSachTheLoai',

@@ -14,6 +14,52 @@ class UserController extends Controller {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
+		$user = new User;
+		$user->hovaten = $request->fullname;
+		$gioitinh = $request->rdoGT;
+		if ($gioitinh == 1) {
+			$user->gioitinh = "Nam";
+		} else if ($gioitinh == 2) {
+			$user->gioitinh = "Nữ";
+		} else {
+			$user->gioitinh = "Không Xác Định";
+		}
+		$user->tuoi = $request->tuoi;
+		$user->congviec = $request->congviec;
+		$user->email = $request->email;
+		$user->tentaikhoan = $request->tentaikhoan;
+		$user->password = bcrypt($request->password);
+
+		if ($request->hasFile('Hinh')) {
+			$file = $request->file('Hinh');
+			$duoi = $file->getClientOriginalExtension();
+			if (($duoi != 'jpg') && ($duoi != 'png') && ($duoi != 'jpeg')) {
+				return redirect('user/them')->with('loi', "Bạn phải nhập file ảnh..(đuôi là:jpg,png,jpeg");
+			}
+			$name = $file->getClientOriginalName();
+			$Hinh = str_random(4) . "_" . $name;
+			while (file_exists('uploads/customer/avatar/' . $Hinh)) {
+				$Hinh = str_random(4) . "_" . $name;
+			}
+			$file->move("uploads/customer/avatar", $Hinh);
+			$user->anhdaidien = $Hinh;
+		} else {
+			$user->anhdaidien = "";
+		}
+
+		$user->noibat = $request->noibat;
+		$user->level = $request->rdoUser;
+		$user->save();
+		return redirect('user/danhsach')->with('thongbao', 'Them thanh cong');
+
+	}
+	public function getSua($id) {
+
+	}
+	public function postSua(Request $request, $id) {
+
+	}
+	public function getXoa($id) {
 
 	}
 }
