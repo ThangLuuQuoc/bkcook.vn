@@ -31,66 +31,67 @@ Route::group(['prefix' => 'nhahang'], function () {
 
 });
 
-Route::get('admin/theloai/danhsach', [
-	'as' => 'danhSachTheLoai',
-	'uses' => 'TheLoaiController@getDanhSachTheLoai',
-]);
+//admin -> theloai
+Route::group(['prefix' => 'theloai'],function(){
+	Route::get('danhsach',['as'=>'danhSachTheLoai','uses'=>'TheLoaiController@getDanhSach']);
+	Route::get('sua/{id}',['as'=>'suaTheLoai','uses'=>'TheLoaiController@SuaTheLoai']);
+	Route::post('sua/{id}',['as'=>'suaTheLoai','uses'=>'TheLoaiController@postSuaTheLoai']);
+	Route::get('them',['as'=>'themTheLoai',function(){
+			return view('admin.theloai.them');
+		}]);
+	Route::post('them',['as'=>'themTheLoai','uses'=>'TheLoaiController@postThemTheLoai']);
+	Route::get('xoa/{id}',['as'=>'xoaTheLoai','uses'=>'TheLoaiController@xoaTheLoai']);
+});
 
-Route::get('admin/theloai/them', [
-	'as' => 'themTheLoai',
-	'uses' => 'TheLoaiController@getViewThemTheLoai',
-]);
+//admin -> loaimon
+Route::group(['prefix' => 'loaimon'],function(){
+	Route::get('danhsach',['as'=>'danhSachLoaiMon','uses'=>'LoaiMonController@getDanhSach']);
+	Route::get('sua/{id}',['as'=>'suaLoaiMon','uses'=>'LoaiMonController@SuaLoaiMon']);
+	Route::post('sua/{id}',['as'=>'suaLoaiMon','uses'=>'LoaiMonController@postSuaLoaiMon']);
+	Route::get('them',['as'=>'themLoaiMon','uses'=>'LoaiMonController@getThemLoaiMon']);
+	Route::post('them',['as'=>'themLoaiMon','uses'=>'LoaiMonController@postThemLoaiMon']);
+	Route::get('xoa/{id}',['as'=>'xoaLoaiMon','uses'=>'LoaiMonController@xoaLoaiMon']);
+});
+//admin -> congdung
+Route::group(['prefix' => 'congdung'],function(){
+	Route::get('danhsach',['as'=>'danhSachCongDung','uses'=>'CongDungController@getDanhSach']);
+	Route::get('sua/{id}',['as'=>'suaCongDung','uses'=>'CongDungController@suaCongDung']);
+	Route::post('sua/{id}',['as'=>'suaCongDung','uses'=>'CongDungController@postSuaCongDung']);
+	Route::get('them',['as'=>'themCongDung',function(){
+			return view('admin.congdung.them');
+		}]);
+	Route::post('them',['as'=>'themCongDung','uses'=>'CongDungController@postThemCongDung']);
+	Route::get('xoa/{id}',['as'=>'xoaCongDung','uses'=>'CongDungController@xoaCongDung']);
+});
+// admin muc dich
+Route::group(['prefix' => 'mucdich'],function(){
+	Route::get('danhsach', ['as'=>'danhSachMucDich','uses'=>'MucDichController@getDanhSach']);
+	Route::get('sua/{id}',['as'=>'suaMucDich','uses'=>'MucDichController@SuaMucDich']);
+	Route::post('sua/{id}',['as'=>'suaMucDich',	'uses'=>'MucDichController@postSuaMucDich']);
+	Route::get('them',['as'=>'themMucDich', function(){
+			return view('admin.mucdich.them');
+		}]);
+	Route::post('them',['as'=>'themMucDich','uses'=>'MucDichController@postThemMucDich']);
+	Route::get('xoa/{id}',['as'=>'xoaMucDich','uses'=>'MucDichController@xoaMucDich']);
+});
+//quan lý vung mien
+Route::group(['prefix' => 'vungmien'],function(){
+	Route::get('danhsach',['as'=>'danhSachVungMien','uses'=>'VungMienController@getDanhSach']);
+	Route::get('sua/{id}',['as'=>'suaVungMien','uses'=>'VungMienController@SuaVungMien']);
+	Route::post('sua/{id}',['as'=>'suaVungMien','uses'=>'VungMienController@postSuaVungMien']);
+	Route::get('them',['as'=>'themVungMien',function(){
+			return view('admin.vungmien.them');
+		}]);
+	Route::post('them',['as'=>'themVungMien','uses'=>'VungMienController@postThemVungMien']);
+	Route::get('xoa/{id}',['as'=>'xoaVungMien','uses'=>'VungMienController@xoaVungMien']);
+});
 
-Route::post('admin/theloai/them', [
-	'as' => 'themTheLoai',
-	'uses' => 'TheLoaiController@themTheLoai',
-]);
-
-Route::get('admin/theloai/sua/{id}', [
-	'as' => 'suaTheLoai',
-	'uses' => 'TheLoaiController@getViewSuaTheLoai',
-]);
-
-Route::post('admin/theloai/sua/{id}', [
-	'as' => 'suaTheLoai',
-	'uses' => 'TheLoaiController@suaTheLoai',
-]);
-
-Route::get('admin/theloai/xoa/{id}', [
-	'as' => 'xoaTheLoai',
-	'uses' => 'TheLoaiController@xoaTheLoai',
-]);
-
-// Route cong dung
-Route::get('admin/congdung/danhsach', [
-	'as' => 'danhSachCongDung',
-	'uses' => 'CongDungController@getDanhSach']
+//ad Nha hang
+Route::get('admin/nhahang/danhsach', [
+	'as'=>'danhSachNhaHang',
+	'uses'=>'NhaHangController@getDanhSach']
 );
-Route::get('admin/congdung/danhsach/sua/{id}', [
-	'as' => 'suaCongDung',
-	'uses' => 'CongDungController@SuaCongDung']
-);
 
-Route::post('admin/congdung/danhsach/sua/{id}', [
-	'as' => 'suaCongDung',
-	'uses' => 'CongDungController@postSuaCongDung']
-);
-
-Route::get('admin/congdung/danhsach/them', [
-	'as' => 'themCongDung',
-	function () {
-		return view('admin.congdung.them');
-	}]);
-
-Route::post('admin/congdung/danhsach/them', [
-	'as' => 'themCongDung',
-	'uses' => 'CongDungController@postThemCongDung']
-);
-
-Route::get('admin/congdung/danhsach/xoa/{id}', [
-	'as' => 'xoaCongDung',
-	'uses' => 'CongDungController@xoaCongDung']
-);
 
 // Route mon an
 Route::get('admin/monan/danhsach', [
