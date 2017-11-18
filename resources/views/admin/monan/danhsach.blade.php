@@ -2,7 +2,7 @@
 @section('content')
 <!-- Page Content -->
 <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="container-fluid">     
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Món Ăn
@@ -19,51 +19,51 @@
                 @endif
             </div>
             <!-- /.col-lg-12 -->
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">         
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
-                        <th>Tên món ăn</th>
-                        <th>Giới thiệu</th>
-                        <th>Nguyên liệu chính</th>
-                        <th>Nguyên liệu phụ</th>
-                        <th>Gia vị</th>
-                        <th>Độ khó</th>
-                        <th>Số bước</th>
-                        <th>Số lượt xem</th>
-                        <th>Số lượt thích</th>
-                        <th>Số bước thực hiện</th>
-                        <th>Mục đích ID</th>
-                        <th>Loại món ID</th>
-                        <th>Công dụng ID</th>
-                        <th>Vùng miền ID</th>
-                        <th>Ngày tạo</th>
-                        <th>Ngày cập nhật</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                        <th>Add</th>
+                        <th style="overflow:hidden;" title="ID">ID</th>
+                        <th style="overflow:hidden;" title="Tên món ăn">Tên món ăn</th>
+                        <th style="overflow:hidden;" title="Giới thiệu">Giới thiệu</th>
+                        <th style="overflow:hidden;" title="Nguyên liệu chính">Nguyên liệu chính</th>
+                        <th style="overflow:hidden;" title="Nguyên liệu phụ">Nguyên liệu phụ</th>
+                        <th style="overflow:hidden;" title="Gia vị">Gia vị</th>
+                        <th style="overflow:hidden;" title="Độ khó">Độ khó</th>
+                        <th style="overflow:hidden;" title="Số bước">Số bước</th>
+                        <th style="overflow:hidden;" title="Số lượt xem">Số lượt xem</th>
+                        <th style="overflow:hidden;" title="Số lượt thích">Số lượt thích</th>
+                        <th style="overflow:hidden;" title="Số bước thực hiện">Số bước thực hiện</th>
+                        <th style="overflow:hidden;" title="Mục đích ID">Mục đích ID</th>
+                        <th style="overflow:hidden;" title="Loại món ID">Loại món ID</th>
+                        <th style="overflow:hidden;" title="Công dụng ID">Công dụng ID</th>
+                        <th style="overflow:hidden;" title="Vùng miền ID">Vùng miền ID</th>
+                        <th style="overflow:hidden;" title="Ngày tạo">Ngày tạo</th>
+                        <th style="overflow:hidden;" title="Ngày cập nhật">Ngày cập nhật</th>
+                        <th style="overflow:hidden;" title="Xóa">Xóa</th>
+                        <th style="overflow:hidden;" title="Sửa">Sửa</th>
+                        <th style="overflow:hidden;" title="Thêm bước nấu">Thêm bước nấu</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($monan as $ma)
-                    <tr class="odd gradeX" align="center">
-                        <td>{{$ma -> id}}</td>
-                        <td>{{$ma -> ten_monan}}</td>
-                        <td>{{$ma -> gioithieu}}</td>
-                        <td>{{$ma -> nguyen_lieu_chinh}}</td>
-                        <td>{{$ma -> nguyen_lieu_phu}}</td>
-                        <td>{{$ma -> giavi}}</td>
-                        <td>{{$ma -> do_kho}}</td>
-                        <td>{{$ma -> so_buoc}}</td>
-                        <td>{{$ma -> so_luot_xem}}</td>
-                        <td>{{$ma -> so_luot_thich}}</td>
-                        <td>{{$ma -> so_buoc}}</td>
-                        <td>{{$ma -> id_mucdich}}</td>
-                        <td>{{$ma -> id_loaimon}}</td>
-                        <td>{{$ma -> id_congdung}}</td>
-                        <td>{{$ma -> id_vungmien}}</td>
-                        <td>{{$ma -> created_at}}</td>
-                        <td>{{$ma -> updated_at}}</td>
+                    <tr class="odd gradeX" align="center">                      
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id}}">{{$ma -> id}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> ten_monan}}">{{$ma -> ten_monan}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> gioithieu}}">{{$ma -> gioithieu}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> nguyen_lieu_chinh}}">{{$ma -> nguyen_lieu_chinh}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> nguyen_lieu_phu}}">{{$ma -> nguyen_lieu_phu}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> giavi}}">{{$ma -> giavi}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> do_kho}}">{{$ma -> do_kho}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> so_buoc}}">{{$ma -> so_buoc}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> so_luot_xem}}">{{$ma -> so_luot_xem}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> so_luot_thich}}">{{$ma -> so_luot_thich}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> so_buoc}}">{{$ma -> so_buoc}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id_mucdich}}">{{$ma -> id_mucdich}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id_loaimon}}">{{$ma -> id_loaimon}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id_congdung}}">{{$ma -> id_congdung}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id_vungmien}}">{{$ma -> id_vungmien}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> created_at}}">{{$ma -> created_at}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> updated_at}}">{{$ma -> updated_at}}</td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaMonAn', $ma -> id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')""> Xóa</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaMonAn', $ma -> id)}}">Sửa</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('themBuocNau', $ma -> id)}}">Thêm bước nấu</a></td>
@@ -71,7 +71,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
+        </div>       
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->

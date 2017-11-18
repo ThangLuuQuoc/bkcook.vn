@@ -19,7 +19,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Món Ăn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('danhSachMonAn')}}">Danh Sach Các Món Ăn</a>
+                                    <a href="{{route('danhSachMonAn')}}">Danh Sách Các Món Ăn</a>
                                 </li>
                                 <li>
                                     <a href="{{route('themMonAn')}}">Thêm Món Ăn</a>
@@ -75,19 +75,6 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Món Ăn<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{route('danhSachMonAn')}}">Danh Sach Các Món Ăn</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('themMonAn')}}">Thêm Món Ăn</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-
                         <li>
                             <a href="#"><i class="fa fa-anchor"></i> --- Món Ăn Theo Mục Đích<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

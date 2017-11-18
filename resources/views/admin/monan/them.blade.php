@@ -10,7 +10,6 @@
         var e = document.forms["themMonAn"]["giaVi"].value.trim();
         var f = document.forms["themMonAn"]["doKho"].value.trim();
         var g = document.forms["themMonAn"]["soBuoc"].value.trim();
-        var h = document.forms["themMonAn"]["noiDungBuoc"].value.trim();
 
         if (a == "") {
             alert("Bạn chưa nhập tên món ăn");
@@ -36,9 +35,6 @@
         } else if (isNaN(g)) {
             alert("Số bước phải là chữ số");
             return false;
-        // } else if (h == "") {
-        //     alert("Bạn chưa nhập nội dung các bước");
-        //     return false;
         } else {
             return true;
         }
@@ -117,10 +113,6 @@
                             <option value="{{$vm -> id}}">{{$vm -> ten}}</option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Các bước nấu</label>
-                        <textarea name="noiDungBuoc" class="ckeditor"></textarea>
                     </div>
                     <button type="submit" class="btn btn-default">Thêm</button>                   
                     <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Cancel</button>
