@@ -61,8 +61,8 @@ Route::get('chitietmonan', function () {
 Route::get('login', function () {
 	return view('customer.login');
 });
-Route::get('singup', function () {
-	return view('customer.singup');
+Route::get('dangky', function () {
+	return view('customer.dangky');
 });
 Route::get('dangbai', function () {
 	return view('customer.dangbai');
