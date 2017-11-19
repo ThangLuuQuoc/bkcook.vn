@@ -8,12 +8,14 @@ class UserController extends Controller {
 
 	public function getDanhSach() {
 		$users = User::all();
+		//dd($users);
 		return view('admin.taikhoan.danhsach', ['users' => $users]);
 	}
 	public function getThem() {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
+
 		$user = new User;
 		$user->hovaten = $request->fullname;
 		$gioitinh = $request->rdoGT;
@@ -30,23 +32,6 @@ class UserController extends Controller {
 		$user->tentaikhoan = $request->tentaikhoan;
 		$user->password = bcrypt($request->password);
 
-		if ($request->hasFile('Hinh')) {
-			$file = $request->file('Hinh');
-			$duoi = $file->getClientOriginalExtension();
-			if (($duoi != 'jpg') && ($duoi != 'png') && ($duoi != 'jpeg')) {
-				return redirect('user/them')->with('loi', "Bạn phải nhập file ảnh..(đuôi là:jpg,png,jpeg");
-			}
-			$name = $file->getClientOriginalName();
-			$Hinh = str_random(4) . "_" . $name;
-			while (file_exists('uploads/customer/avatar/' . $Hinh)) {
-				$Hinh = str_random(4) . "_" . $name;
-			}
-			$file->move("uploads/customer/avatar", $Hinh);
-			$user->anhdaidien = $Hinh;
-		} else {
-			$user->anhdaidien = "";
-		}
-
 		$user->noibat = $request->noibat;
 		$user->level = $request->rdoUser;
 		$user->save();
@@ -54,6 +39,9 @@ class UserController extends Controller {
 
 	}
 	public function getSua($id) {
+
+		$user = User::find($id);
+		return view('admin.taikhoan.sua', ['user' => $user]);
 
 	}
 	public function postSua(Request $request, $id) {

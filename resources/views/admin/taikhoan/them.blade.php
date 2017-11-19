@@ -11,7 +11,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="user/them" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <div class="form-group">
                                 <label>Họ Và Tên</label>
@@ -55,9 +55,10 @@
                                 <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
                             </div>
                             <hr class="alert-warning">
+
                             <div class="form-group">
                                 <label>Ảnh Đại Diện<label>
-                                <input type="file" name="Hinh" class="form-control" />
+                                <input type="file" name="Hinh" class="form-control" required="" />
                             </div>
 
                             <div class="form-group">
