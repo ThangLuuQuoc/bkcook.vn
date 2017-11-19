@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Công Dụng
-                            <small>List</small>
+                            <small>Danh sách</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -22,13 +22,12 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>Name</th>
-                                <th>ten khong dau</th>
-                                 <th>date</th>
+                                <th>Tên</th>
+                                <th>Tên không dấu</th>
+                                 <th>ngày tạo</th>
                                 <!-- <th>Status</th> -->
-                                <th>Add</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xoá</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,9 +37,8 @@
                                 <td>{{$cd->tenkhongdau}}</td>
                                 <td>{{$cd->created_at}}</td>
                                 <!-- <td>Ẩn</td> -->
-                                <td class="center"><i class="fa fa-plus fa-fw"></i><a href="{{route('themCongDung')}}"> Add</a></td>
-                                <td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaCongDung',$cd->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaCongDung',$cd->id)}}">Edit</a></td>
+                                <td class="center text-info"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaCongDung',$cd->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Xoá</a></td>
+                                <td class="center text-info"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaCongDung',$cd->id)}}">Sửa</a></td>
                             </tr>
                              @endforeach
                         </tbody>

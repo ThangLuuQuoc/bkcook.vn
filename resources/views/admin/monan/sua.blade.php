@@ -51,7 +51,7 @@
                 <h1 class="page-header">Món Ăn
                     <small>Sửa</small>
                 </h1>
-            </div>
+            </div>           
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
                 <form action="{{route('suaMonAn', $monan -> id)}}" method="POST" name="suaMonAn" onsubmit="return validateForm()">
@@ -118,10 +118,38 @@
                     </div>
                     <div class="form-group">
                         <label>Các bước nấu</label>
-                        @foreach($cacbuocnau as $cbn)                        
-                        <textarea name="cacBuocNau" class="ckeditor">{{$cbn -> noidung}}</textarea><br>
-                        @endforeach
-                    </div>                            
+                    </div>
+                    @if(Session::has('suabuocnauthanhcong'))
+                    <div class="alert alert-success"><strong>{{Session::get('suabuocnauthanhcong')}}</strong></div>
+                    @endif
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">
+                        <thead>
+                            <tr align="center">
+                                <th style="overflow:hidden;" title="ID">ID</th>
+                                <th style="overflow:hidden;" title="ID Món Ăn">ID Món Ăn</th>
+                                <th style="overflow:hidden;" title="Nội Dung">Nội Dung</th>
+                                <th style="overflow:hidden;" title="Ảnh">Ảnh</th>
+                                <th style="overflow:hidden;" title="Ngày Tạo">Ngày Tạo</th>
+                                <th style="overflow:hidden;" title="Ngày Cập Nhật">Ngày Cập Nhật</th>
+                                <th style="overflow:hidden;" title="Xóa">Xóa</th>
+                                <th style="overflow:hidden;" title="Sửa">Sửa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($cacbuocnau as $cbn)
+                            <tr class="odd gradeX" align="center">                                
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> id}}">{{$cbn -> id}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> id_monan}}">{{$cbn -> id_monan}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> noidung}}">{{$cbn -> noidung}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> image}}">{{$cbn -> image}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> created_at}}">{{$cbn -> created_at}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cbn -> updated_at}}">{{$cbn -> updated_at}}</td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaBuocNau', [$cbn -> id_monan, $cbn -> id])}}"> Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaBuocNau', [$cbn -> id_monan, $cbn -> id])}}">Sửa</a></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table><br><br>
                     <button type="submit" class="btn btn-default">Sửa</button>                   
                     <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Cancel</button>
                     <form>

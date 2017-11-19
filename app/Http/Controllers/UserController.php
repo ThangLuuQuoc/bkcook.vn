@@ -8,7 +8,6 @@ class UserController extends Controller {
 
 	public function getDanhSach() {
 		$users = User::all();
-		//dd($users);
 		return view('admin.taikhoan.danhsach', ['users' => $users]);
 	}
 	public function getThem() {

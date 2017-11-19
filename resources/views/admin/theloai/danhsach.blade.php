@@ -26,12 +26,12 @@
                         <th>Tên không dấu</th>
                         <th>Ngày tạo</th>
                         <th>Ngày cập nhật</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
+                        <th>Xoá</th>
+                        <th>Sửa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($danh_sach as $ds)
+                    @foreach($theloai as $ds)
                     <tr class="odd gradeX" align="center">                      
                         <td>{{$ds -> id}}</td>
                         <td>{{$ds -> ten}}</td>

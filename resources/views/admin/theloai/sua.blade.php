@@ -26,10 +26,10 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label>Tên thể loại</label>
-                        <input class="form-control" name="ten" value="{{$theloai -> ten}}" required="" />
+                        <input class="form-control" name="ten" value="{{$theloai -> ten}}" required />
                     </div>
                     <button type="submit" class="btn btn-default">Sửa</button>
-                    <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Cancel</button>
+                    <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
                     <form>
                     </div>
                 </div>

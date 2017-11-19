@@ -19,7 +19,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Món Ăn<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('danhSachMonAn')}}">Danh Sach Các Món Ăn</a>
+                                    <a href="{{route('danhSachMonAn')}}">Danh Sách Các Món Ăn</a>
                                 </li>
                                 <li>
                                     <a href="{{route('themMonAn')}}">Thêm Món Ăn</a>
@@ -43,27 +43,38 @@
                             <a href="#"><i class="fa fa-cube fa-fw"></i> --- Loại Món<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sách Các Loại Món</a>
+                                    <a href="{{route('danhSachLoaiMon')}}">Danh Sách Các Loại Món</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Loại Món</a>
+                                    <a href="{{route('themLoaiMon')}}">Thêm Loại Món</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-bars"></i> --- Công Dụng<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{route('danhSachCongDung')}}">Danh Sách Các Công Dụng</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('themCongDung')}}">Thêm Công Dụng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> --- Món Ăn<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-adjust"></i> --- Mục Đích<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{route('danhSachMonAn')}}">Danh Sach Các Món Ăn</a>
+                                    <a href="{{route('danhSachMucDich')}}">Danh Sách Các Mục Đích</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('themMonAn')}}">Thêm Món Ăn</a>
+                                    <a href="{{route('themMucDich')}}">Thêm Mục Đích</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
                         <li>
                             <a href="#"><i class="fa fa-anchor"></i> --- Món Ăn Theo Mục Đích<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -92,10 +103,10 @@
                             <a href="#"><i class="glyphicon glyphicon-globe"></i>  --- Vùng Miền<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Danh Sách Các Loại Món</a>
+                                    <a href="{{route('danhSachVungMien')}}">Danh Sách Các Vùng Miền</a>
                                 </li>
                                 <li>
-                                    <a href="#">Thêm Loại Món</a>
+                                    <a href="{{route('themVungMien')}}">Thêm Vùng Miền</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
