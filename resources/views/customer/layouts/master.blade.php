@@ -27,6 +27,7 @@
     <!--Theme custom css -->
     <link rel="stylesheet" href="vendor_customer/assets/css/style.css">
     <link rel="stylesheet" href="vendor_customer/assets/css/chitietmonan.css" >
+    <link rel="stylesheet" type="text/css" href="vendor_customer/assets/css/modalHeader.css">
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="vendor_customer/assets/css/responsive.css"/>
     <link rel="stylesheet" type="text/css" href="vendor_customer/vendor/css/mycss.css">
@@ -60,6 +61,7 @@
 <script src="vendor_customer/assets/css/skills/inview.min.js"></script>
 <script src="vendor_customer/assets/css/skills/progressbar.js"></script>
 <script src="vendor_customer/assets/css/skills/main.js"></script>
+<script src="vendor_customer/assets/js/modalHeader.js"></script>
 <!--This is link only for gmaps-->
 <!--
 <script src="http://maps.google.com/maps/api/js"></script>
