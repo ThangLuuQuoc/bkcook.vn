@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller {
 
 	public function getDanhSach() {
@@ -14,6 +15,7 @@ class UserController extends Controller {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
+		$photo="";
 		$user = new User;
 		$user->hovaten = $request->fullname;
 		$gioitinh = $request->rdoGT;
@@ -30,19 +32,14 @@ class UserController extends Controller {
 		$user->tentaikhoan = $request->tentaikhoan;
 		$user->password = bcrypt($request->password);
 
-		if ($request->hasFile('Hinh')) {
-			$file = $request->file('Hinh');
-			$duoi = $file->getClientOriginalExtension();
-			if (($duoi != 'jpg') && ($duoi != 'png') && ($duoi != 'jpeg')) {
-				return redirect('user/them')->with('loi', "Bạn phải nhập file ảnh..(đuôi là:jpg,png,jpeg");
-			}
-			$name = $file->getClientOriginalName();
-			$Hinh = str_random(4) . "_" . $name;
-			while (file_exists('uploads/customer/avatar/' . $Hinh)) {
-				$Hinh = str_random(4) . "_" . $name;
-			}
-			$file->move("uploads/customer/avatar", $Hinh);
-			$user->anhdaidien = $Hinh;
+		if ($request->file('Hinh')) {
+			// dd($request->file('Hinh'));
+			$destinationPath="uploads/avatar";
+			$file=$request->Hinh;
+			$extension=$file->getClientOriginalExtension();
+			$filename= $request->file('Hinh')->getClientOriginalName().".".$extension;
+			$file->move($destinationPath,$filename);
+			$user->anhdaidien=$filename;
 		} else {
 			$user->anhdaidien = "";
 		}

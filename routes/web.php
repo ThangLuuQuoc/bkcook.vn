@@ -92,49 +92,6 @@ Route::get('admin/nhahang/danhsach', [
 	'uses'=>'NhaHangController@getDanhSach']
 );
 
-
-// Route mon an
-Route::get('admin/monan/danhsach', [
-	'as' => 'danhSachMonAn',
-	'uses' => 'MonAnController@getDanhSachMonAn',
-]);
-
-Route::get('admin/monan/them', [
-	'as' => 'themMonAn',
-	'uses' => 'MonAnController@getViewThemMonAn',
-]);
-
-Route::post('admin/monan/them', [
-	'as' => 'themMonAn',
-	'uses' => 'MonAnController@themMonAn',
-]);
-
-Route::get('admin/monan/sua/{id}', [
-	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@getViewSuaMonAn',
-]);
-
-Route::post('admin/monan/sua/{id}', [
-	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@suaMonAn',
-]);
-
-Route::get('admin/monan/xoa/{id}', [
-	'as' => 'xoaMonAn',
-	'uses' => 'MonAnController@xoaMonAn',
-]);
-
-// Route buoc nau
-Route::get('admin/monan/thembuocnau/{id}', [
-	'as' => 'themBuocNau',
-	'uses' => 'MonAnController@getViewThemBuocNau',
-]);
-
-Route::post('admin/monan/thembuocnau/{id}', [
-	'as' => 'themBuocNau',
-	'uses' => 'MonAnController@themBuocNau',
-]);
-
 //Customer
 Route::get('trangchu', function () {
 	return view('customer.trangchu');
@@ -198,41 +155,56 @@ Route::get('dangbai', function () {
 // Route mon an
 Route::get('admin/monan/danhsach', [
 	'as' => 'danhSachMonAn',
-	'uses' => 'MonAnController@getDanhSachMonAn',
+	'uses' => 'MonAnController@getDanhSachMonAn'
 ]);
 
 Route::get('admin/monan/them', [
 	'as' => 'themMonAn',
-	'uses' => 'MonAnController@getViewThemMonAn',
+	'uses' => 'MonAnController@getViewThemMonAn'
 ]);
 
 Route::post('admin/monan/them', [
 	'as' => 'themMonAn',
-	'uses' => 'MonAnController@themMonAn',
+	'uses' => 'MonAnController@themMonAn'
 ]);
 
 Route::get('admin/monan/sua/{id}', [
 	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@getViewSuaMonAn',
+	'uses' => 'MonAnController@getViewSuaMonAn'
 ]);
 
 Route::post('admin/monan/sua/{id}', [
 	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@suaMonAn',
+	'uses' => 'MonAnController@suaMonAn'
 ]);
 
 Route::get('admin/monan/xoa/{id}', [
 	'as' => 'xoaMonAn',
-	'uses' => 'MonAnController@xoaMonAn',
+	'uses' => 'MonAnController@xoaMonAn'
 ]);
 
 // Route buoc nau
 Route::get('admin/monan/thembuocnau/{id}', [
 	'as' => 'themBuocNau',
-	'uses' => 'MonAnController@getViewThemBuocNau',
+	'uses' => 'CacBuocNauController@getViewThemBuocNau'
 ]);
 
 Route::post('admin/monan/thembuocnau/{id}', [
 	'as' => 'themBuocNau',
-	'uses' => 'MonAnController@themBuocNau',
+	'uses' => 'CacBuocNauController@themBuocNau'
+]);
+
+Route::get('admin/monan/suabuocnau/{id_monan}/{id_buocnau}', [
+	'as' => 'suaBuocNau',
+	'uses' => 'CacBuocNauController@getViewSuaBuocNau'
+]);
+
+Route::post('admin/monan/suabuocnau/{id_monan}/{id_buocnau}', [
+	'as' => 'suaBuocNau',
+	'uses' => 'CacBuocNauController@suaBuocNau'
+]);
+
+Route::get('admin/monan/xoabuocnau/{id_monan}/{id_buocnau}', [
+	'as' => 'xoaBuocNau',
+	'uses' => 'CacBuocNauController@xoaBuocNau'
 ]);

@@ -22,11 +22,15 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form name="suaTheLoai" action="{{route('suaTheLoai', $theloai -> id)}}" method="POST" onsubmit="return validateForm()">
+                <form name="suaTheLoai" action="{{route('suaTheLoai', $theloai -> id)}}" enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
                         <label>Tên thể loại</label>
                         <input class="form-control" name="ten" value="{{$theloai -> ten}}" required />
+                    </div>
+                     <div class="form-group">
+                        <label>Ảnh Đại Diện<label>
+                        <input type="file" name="anh" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-default">Sửa</button>
                     <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>

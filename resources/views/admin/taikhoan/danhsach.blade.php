@@ -10,7 +10,7 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                        <table class="table table-striped table-bordered table-hover"id="dataTables-example"style="table-layout:fixed;">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example"style="table-layout:fixed;">
                             <thead>
                                 <tr align="center">
                                     <th style="overflow:hidden;" title="ID">ID</th>
@@ -44,7 +44,7 @@
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->level }}</td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->noibat }}</td>
 
-                                    <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="uploads/customer/avatar/{{$us->anhdaidien }}"alt="" width="50px" height="50px"></td>
+                                    <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="{{$us->anhdaidien }}"alt="" width="50px" height="50px"></td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$us->created_at }}">{{$us->created_at }}</td>
 
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="user/sua/{{$us->id }}">Sửa</a></td>

@@ -19,14 +19,18 @@ class MucDichController extends Controller
             return view('admin.mucdich.sua',compact('mucdich'));
         }
         public function postSuaMucDich($id,Request $req){
-            $errors=$this->validate($req,
-                [
-                    'ten'=>'unique:MucDich'
-                ],
-                [ 
-                    'ten'=>"tên mục đích này đã tồn tại"
-                ]);
-            $b= MucDich::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten)]);
+             $anhdaidien="";
+            if ($req->file('anh')) {
+                $destinationPath="uploads/mucdich";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $anhdaidien=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
+            $b= MucDich::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten),'anh'=>$anhdaidien]);
             return redirect()->route('danhSachMucDich',['mucdich'=>$this->mucdich]);
         }
     public function postThemMucDich(Request $req){
@@ -40,6 +44,16 @@ class MucDichController extends Controller
             $mucdich= new MucDich();
             $mucdich->ten=$req->ten;
             $mucdich->tenkhongdau=changeTitle($req->ten);
+            if ($req->file('anh')) {
+                $destinationPath="uploads/mucdich";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $mucdich->anh=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
             $mucdich->save();
             return redirect()->route('danhSachMucDich',['mucdich'=>$this->mucdich]);
         }

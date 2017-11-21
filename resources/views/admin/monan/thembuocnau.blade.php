@@ -3,9 +3,7 @@
 
 <script>
     function validateForm() {
-        var a = document.forms["theBuocNau"]["noiDungBuoc"].value.trim();
-        var b = document.forms["themMonAn"]["gioiThieu"].value.trim();
-
+        var a = document.forms["themBuocNau"]["noiDungBuoc"].value.trim();
         if (a == "") {
             alert("Bạn chưa nhập nội dung bước nấu");
             return false;
@@ -26,11 +24,11 @@
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
-                <form action="{{route('themBuocNau', $monan -> id)}}" method="POST">
+                <form action="{{route('themBuocNau', $monan -> id)}}" method="POST" name="themBuocNau" onsubmit="return validateForm()">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea name="noiDungBuoc" class="ckeditor"></textarea>
+                        <textarea name="noiDungBuoc" class="form-control" style="height: 250px"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Chọn ảnh</label>

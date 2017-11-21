@@ -19,14 +19,18 @@ class CongDungController extends Controller
             return view('admin.congdung.sua',compact('congdung'));
         }
         public function postSuaCongDung($id,Request $req){
-             $this->validate($req,
-                [
-                    'ten'=>'unique:CongDung'
-                ],
-                [ 
-                    'ten'=>"tên Công dụng này đã tồn tại"
-                ]);
-            $b= CongDung::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten)]);
+             $anhdaidien="";
+           if ($req->file('anh')) {
+                $destinationPath="uploads/congdung";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $anhdaidien=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
+            $b= CongDung::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten),'anh'=>$anhdaidien]);
             return redirect()->route('danhSachCongDung',['congdung'=>$this->congdung]);
         }
     public function postThemCongDung(Request $req){
@@ -40,6 +44,16 @@ class CongDungController extends Controller
             $congdung= new CongDung();
             $congdung->ten=$req->ten;
             $congdung->tenkhongdau=changeTitle($req->ten);
+        if ($req->file('anh')) {
+            $destinationPath="uploads/congdung";
+            $file=$req->anh;
+            $extension=$file->getClientOriginalExtension();
+            $filename= $req->file('anh')->getClientOriginalName();
+            $file->move($destinationPath,$filename);
+            $congdung->anh=$filename;
+        } else {
+            dd("có lỗi xảy ra");
+        }
             $congdung->save();
             return redirect()->route('danhSachCongDung',['congdung'=>$this->congdung]);
         }

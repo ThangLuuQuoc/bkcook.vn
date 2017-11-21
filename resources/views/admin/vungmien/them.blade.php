@@ -22,12 +22,16 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form name="themVungMien" action="{{route('themVungMien')}}" method="POST" onsubmit="return validateForm()">
+                        <form name="themVungMien" action="{{route('themVungMien')}}" enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                           
                             <div class="form-group">
                                 <label>Tên vùng miền</label>
                                 <input class="form-control" name="ten" required placeholder="nhập tên vùng miền"/>
+                            </div>
+                             <div class="form-group">
+                                <label>Ảnh Đại Diện<label>
+                                <input type="file" name="anh" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label>vị trí</label>
