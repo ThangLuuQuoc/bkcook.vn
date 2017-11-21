@@ -2,10 +2,10 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 19, 2017 at 06:02 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 21, 2017 lúc 04:42 AM
+-- Phiên bản máy phục vụ: 10.1.25-MariaDB
+-- Phiên bản PHP: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,18 +19,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `team13`
+-- Cơ sở dữ liệu: `team1301`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cacbuocnau`
+-- Cấu trúc bảng cho bảng `cacbuocnau`
 --
 
 CREATE TABLE `cacbuocnau` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_monan` int(10) UNSIGNED NOT NULL,
+  `noidung` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -38,7 +39,7 @@ CREATE TABLE `cacbuocnau` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentmonan`
+-- Cấu trúc bảng cho bảng `commentmonan`
 --
 
 CREATE TABLE `commentmonan` (
@@ -54,7 +55,7 @@ CREATE TABLE `commentmonan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentpost`
+-- Cấu trúc bảng cho bảng `commentpost`
 --
 
 CREATE TABLE `commentpost` (
@@ -69,7 +70,7 @@ CREATE TABLE `commentpost` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `congdung`
+-- Cấu trúc bảng cho bảng `congdung`
 --
 
 CREATE TABLE `congdung` (
@@ -80,10 +81,21 @@ CREATE TABLE `congdung` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `congdung`
+--
+
+INSERT INTO `congdung` (`id`, `ten`, `tenkhongdau`, `created_at`, `updated_at`) VALUES
+(1, 'A', 'a', NULL, NULL),
+(2, 'B', 'b', NULL, NULL),
+(3, 'C', 'c', NULL, NULL),
+(4, 'D', 'd', '2017-11-11 03:41:30', '2017-11-11 03:41:30'),
+(5, 'E', 'e', '2017-11-11 03:41:56', '2017-11-11 03:41:56');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaimon`
+-- Cấu trúc bảng cho bảng `loaimon`
 --
 
 CREATE TABLE `loaimon` (
@@ -95,10 +107,17 @@ CREATE TABLE `loaimon` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `loaimon`
+--
+
+INSERT INTO `loaimon` (`id`, `ten`, `tenkhongdau`, `id_theloai`, `created_at`, `updated_at`) VALUES
+(1, 'a', 'a', 1, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Cấu trúc bảng cho bảng `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -108,7 +127,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Đang đổ dữ liệu cho bảng `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -134,7 +153,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monan`
+-- Cấu trúc bảng cho bảng `monan`
 --
 
 CREATE TABLE `monan` (
@@ -148,7 +167,6 @@ CREATE TABLE `monan` (
   `so_buoc` int(11) NOT NULL,
   `so_luot_xem` int(11) NOT NULL,
   `so_luot_thich` int(11) NOT NULL,
-  `so_buoc_thuc_hien` int(11) NOT NULL,
   `id_mucdich` int(10) UNSIGNED NOT NULL,
   `id_loaimon` int(10) UNSIGNED NOT NULL,
   `id_congdung` int(10) UNSIGNED NOT NULL,
@@ -157,10 +175,19 @@ CREATE TABLE `monan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `monan`
+--
+
+INSERT INTO `monan` (`id`, `ten_monan`, `gioithieu`, `nguyen_lieu_chinh`, `nguyen_lieu_phu`, `giavi`, `do_kho`, `so_buoc`, `so_luot_xem`, `so_luot_thich`, `id_mucdich`, `id_loaimon`, `id_congdung`, `id_vungmien`, `created_at`, `updated_at`) VALUES
+(2, 'a', 'f', 'v', 'r', 'r', 'g', 2, 0, 0, 3, 1, 1, 1, '2017-11-08 16:14:27', '2017-11-13 15:28:46'),
+(3, 'a', 'f', 'e', 'g', 's', 'f', 1, 0, 0, 2, 1, 1, 1, '2017-11-11 04:30:47', '2017-11-13 15:29:34'),
+(4, 'a', 'd', 'f', 'v', 'a', 's', 3, 0, 0, 1, 1, 1, 1, '2017-11-13 14:45:52', '2017-11-13 14:45:52');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mucdich`
+-- Cấu trúc bảng cho bảng `mucdich`
 --
 
 CREATE TABLE `mucdich` (
@@ -171,16 +198,27 @@ CREATE TABLE `mucdich` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `mucdich`
+--
+
+INSERT INTO `mucdich` (`id`, `ten`, `tenkhongdau`, `created_at`, `updated_at`) VALUES
+(1, 'AA', 'aa', NULL, NULL),
+(2, 'BB', 'bb', NULL, NULL),
+(3, 'CC', 'cc', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhahang`
+-- Cấu trúc bảng cho bảng `nhahang`
 --
 
 CREATE TABLE `nhahang` (
   `id` int(10) UNSIGNED NOT NULL,
   `ten` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tenkhongdau` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `luotxem` int(11) NOT NULL,
   `lienhe` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `vichi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -192,7 +230,7 @@ CREATE TABLE `nhahang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhahanglienket`
+-- Cấu trúc bảng cho bảng `nhahanglienket`
 --
 
 CREATE TABLE `nhahanglienket` (
@@ -204,7 +242,7 @@ CREATE TABLE `nhahanglienket` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -216,7 +254,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postimage`
+-- Cấu trúc bảng cho bảng `postimage`
 --
 
 CREATE TABLE `postimage` (
@@ -230,7 +268,7 @@ CREATE TABLE `postimage` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `report_comment_post`
+-- Cấu trúc bảng cho bảng `report_comment_post`
 --
 
 CREATE TABLE `report_comment_post` (
@@ -245,21 +283,39 @@ CREATE TABLE `report_comment_post` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `theloai`
+-- Cấu trúc bảng cho bảng `theloai`
 --
 
 CREATE TABLE `theloai` (
   `id` int(10) UNSIGNED NOT NULL,
-  `ten` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tenkhongdau` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ten` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tenkhongdau` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `theloai`
+--
+
+INSERT INTO `theloai` (`id`, `ten`, `tenkhongdau`, `created_at`, `updated_at`) VALUES
+(1, 'AAA', 'aaa', '2017-11-08 16:14:03', '2017-11-08 16:14:03'),
+(2, 'BBB', 'bbb', '2017-11-08 16:14:09', '2017-11-08 16:14:09'),
+(3, 'CCC', 'ccc', '2017-11-08 16:14:14', '2017-11-08 16:14:14'),
+(4, 'DDD', 'ddd', '2017-11-08 16:14:27', '2017-11-08 16:14:27'),
+(5, 'EEE', 'eee', '2017-11-08 16:14:32', '2017-11-08 16:14:32'),
+(6, 'FFF', 'fff', '2017-11-08 16:14:35', '2017-11-08 16:14:35'),
+(7, 'GGG', 'ggg', '2017-11-08 16:14:40', '2017-11-08 16:14:40'),
+(8, 'HHH', 'hhh', '2017-11-08 16:14:45', '2017-11-08 16:14:45'),
+(14, 'Tên', 'ten', '2017-11-11 03:21:18', '2017-11-13 15:14:27'),
+(15, 'Sặc', 'sac', '2017-11-13 15:14:34', '2017-11-13 15:14:34'),
+(16, 'Bưa Sáng', 'bua-sang', '2017-11-16 16:23:55', '2017-11-16 16:23:55'),
+(17, 'Bữa Giữa Sáng', 'bua-giua-sang', '2017-11-16 16:24:15', '2017-11-16 16:24:15');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thongke`
+-- Cấu trúc bảng cho bảng `thongke`
 --
 
 CREATE TABLE `thongke` (
@@ -278,7 +334,7 @@ CREATE TABLE `thongke` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userpost`
+-- Cấu trúc bảng cho bảng `userpost`
 --
 
 CREATE TABLE `userpost` (
@@ -290,6 +346,7 @@ CREATE TABLE `userpost` (
   `soluong_comment` int(11) NOT NULL,
   `id_loaimon` int(10) UNSIGNED NOT NULL,
   `id_user` int(10) UNSIGNED NOT NULL,
+  `id_nhahang` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -297,32 +354,46 @@ CREATE TABLE `userpost` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `hovaten` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gioitinh` tinyint(1) NOT NULL,
-  `tuoi` int(11) NOT NULL,
-  `congviec` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gioitinh` char(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tuoi` int(11) DEFAULT NULL,
+  `congviec` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tentaikhoan` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` int(11) NOT NULL,
-  `noibat` int(11) NOT NULL,
-  `anhdaidien` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_facebook` int(11) NOT NULL,
-  `id_google` int(11) NOT NULL,
+  `level` int(11) DEFAULT NULL,
+  `noibat` int(11) DEFAULT NULL,
+  `anhdaidien` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_facebook` int(11) DEFAULT NULL,
+  `id_google` int(11) DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `hovaten`, `gioitinh`, `tuoi`, `congviec`, `email`, `tentaikhoan`, `password`, `level`, `noibat`, `anhdaidien`, `id_facebook`, `id_google`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyễn Huy Phát', 'Nam', 21, 'Kỹ Sư', 'phatsn11081996@gmail.com', 'phatbk', '827ccb0eea8a706c4c34a16891f84e7b', 1, 10, 'phatdt', 0, 0, NULL, '2017-11-16 17:00:00', NULL),
+(2, 'Nguyễn Văn Thắng', 'Không xác định', 21, 'Kỹ sư', 'thangdoto@gmail.com', 'thangdote', '827ccb0eea8a706c4c34a16891f84e7b', 2, 13, 'thang', 0, 0, NULL, '2017-11-16 17:00:00', NULL),
+(3, 'aaaaaaaaaaaa', 'Nam', 21, 'ư1w1w1', 'sasq@gmail.com', 'sqdqd', '$2y$10$S5yUg40pbHqM2O7eRtsMk.cTEG/58jgXcPFNk2mLcsm9hmjfbMEJu', 2, 12, '', NULL, NULL, NULL, '2017-11-17 13:44:37', '2017-11-17 13:44:37'),
+(4, 'Nguyễn Thị Tú Anh', 'Nữ', 21, 'Kỹ sư hóa dầu', 'tuanh96@gmail.com', 'tuanh', '$2y$10$ERbLCgrAXcPuaqdwJFIN6uF6NJGkDRnBJAiYEJ258HmyDjLUicaCW', 1, 20, '', NULL, NULL, NULL, '2017-11-17 14:52:39', '2017-11-17 14:52:39'),
+(5, 'Hòa Phát', 'Nữ', 21, 'Nhân Viên', 'vp@gmail.com', 'vppt', '$2y$10$Nt6X6B66XEYe2P6j5cX6b.cLHAV.WJDNicNnuaF7u57aPJWUj6VhS', 2, 12, '', NULL, NULL, NULL, '2017-11-17 15:12:25', '2017-11-17 15:12:25'),
+(6, 'Boy BKHN', 'Nam', 21, 'Sinh Vien', 'boybk@gmail.com', 'boybk', '$2y$10$OgCZ6de8oDKnavNRNJjDyeDD5OpoOmxvE5fLz9ixdcR5kvnVBlora', 2, 12, '', NULL, NULL, NULL, '2017-11-17 15:20:33', '2017-11-17 15:20:33'),
+(7, 'Nguyễn Nguyễn Nguyễn', 'Nam', 21, 'Sinh Viên', 'nguyen@gmail.com', 'nguyen', '$2y$10$HvRQcL9k0v5lMsaYcZktFOHD3xU2UBiDdmdXbRtPRozlss7BvXps.', 2, 1, '', NULL, NULL, NULL, '2017-11-18 06:03:28', '2017-11-18 06:03:28'),
+(9, 'qqqqqqqqqqqqqq', 'Nam', 12, 'aaaaaaaaaaaa', 'aaaaaaaaa@gmail.com', 'aa', '$2y$10$Oc2/WU5iwRmA1irkNyZdceLiVf1o3LsppNdFcq4jXejv2.KXBwL5K', 2, 12, '', NULL, NULL, NULL, '2017-11-18 06:05:22', '2017-11-18 06:05:22');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `video`
+-- Cấu trúc bảng cho bảng `video`
 --
 
 CREATE TABLE `video` (
@@ -338,32 +409,39 @@ CREATE TABLE `video` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vungmien`
+-- Cấu trúc bảng cho bảng `vungmien`
 --
 
 CREATE TABLE `vungmien` (
   `id` int(10) UNSIGNED NOT NULL,
   `ten` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tenkhongdau` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vichi` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vitri` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gioithieu` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Đang đổ dữ liệu cho bảng `vungmien`
+--
+
+INSERT INTO `vungmien` (`id`, `ten`, `tenkhongdau`, `vitri`, `gioithieu`, `created_at`, `updated_at`) VALUES
+(1, 'a', 'f', 'd', 'f', '2017-11-08 16:14:03', '2017-11-08 16:14:27');
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `cacbuocnau`
+-- Chỉ mục cho bảng `cacbuocnau`
 --
 ALTER TABLE `cacbuocnau`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cacbuocnau_id_monan_foreign` (`id_monan`);
 
 --
--- Indexes for table `commentmonan`
+-- Chỉ mục cho bảng `commentmonan`
 --
 ALTER TABLE `commentmonan`
   ADD PRIMARY KEY (`id`),
@@ -371,7 +449,7 @@ ALTER TABLE `commentmonan`
   ADD KEY `commentmonan_id_user_foreign` (`id_user`);
 
 --
--- Indexes for table `commentpost`
+-- Chỉ mục cho bảng `commentpost`
 --
 ALTER TABLE `commentpost`
   ADD PRIMARY KEY (`id`),
@@ -379,26 +457,26 @@ ALTER TABLE `commentpost`
   ADD KEY `commentpost_id_user_foreign` (`id_user`);
 
 --
--- Indexes for table `congdung`
+-- Chỉ mục cho bảng `congdung`
 --
 ALTER TABLE `congdung`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `loaimon`
+-- Chỉ mục cho bảng `loaimon`
 --
 ALTER TABLE `loaimon`
   ADD PRIMARY KEY (`id`),
   ADD KEY `loaimon_id_theloai_foreign` (`id_theloai`);
 
 --
--- Indexes for table `migrations`
+-- Chỉ mục cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `monan`
+-- Chỉ mục cho bảng `monan`
 --
 ALTER TABLE `monan`
   ADD PRIMARY KEY (`id`),
@@ -408,19 +486,19 @@ ALTER TABLE `monan`
   ADD KEY `monan_id_vungmien_foreign` (`id_vungmien`);
 
 --
--- Indexes for table `mucdich`
+-- Chỉ mục cho bảng `mucdich`
 --
 ALTER TABLE `mucdich`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `nhahang`
+-- Chỉ mục cho bảng `nhahang`
 --
 ALTER TABLE `nhahang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `nhahanglienket`
+-- Chỉ mục cho bảng `nhahanglienket`
 --
 ALTER TABLE `nhahanglienket`
   ADD PRIMARY KEY (`id`),
@@ -428,20 +506,20 @@ ALTER TABLE `nhahanglienket`
   ADD KEY `nhahanglienket_id_nhahang_foreign` (`id_nhahang`);
 
 --
--- Indexes for table `password_resets`
+-- Chỉ mục cho bảng `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `postimage`
+-- Chỉ mục cho bảng `postimage`
 --
 ALTER TABLE `postimage`
   ADD PRIMARY KEY (`id`),
   ADD KEY `postimage_id_post_foreign` (`id_post`);
 
 --
--- Indexes for table `report_comment_post`
+-- Chỉ mục cho bảng `report_comment_post`
 --
 ALTER TABLE `report_comment_post`
   ADD PRIMARY KEY (`id`),
@@ -449,171 +527,172 @@ ALTER TABLE `report_comment_post`
   ADD KEY `report_comment_post_id_user_foreign` (`id_user`);
 
 --
--- Indexes for table `theloai`
+-- Chỉ mục cho bảng `theloai`
 --
 ALTER TABLE `theloai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `thongke`
+-- Chỉ mục cho bảng `thongke`
 --
 ALTER TABLE `thongke`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `userpost`
+-- Chỉ mục cho bảng `userpost`
 --
 ALTER TABLE `userpost`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userpost_id_loaimon_foreign` (`id_loaimon`),
-  ADD KEY `userpost_id_user_foreign` (`id_user`);
+  ADD KEY `userpost_id_nhahang_foreign_idx` (`id_nhahang`),
+  ADD KEY `userpost_id_user_foreign_idx` (`id_user`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `video`
+-- Chỉ mục cho bảng `video`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id`),
   ADD KEY `video_id_monan_foreign` (`id_monan`);
 
 --
--- Indexes for table `vungmien`
+-- Chỉ mục cho bảng `vungmien`
 --
 ALTER TABLE `vungmien`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `cacbuocnau`
+-- AUTO_INCREMENT cho bảng `cacbuocnau`
 --
 ALTER TABLE `cacbuocnau`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `commentmonan`
+-- AUTO_INCREMENT cho bảng `commentmonan`
 --
 ALTER TABLE `commentmonan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `commentpost`
+-- AUTO_INCREMENT cho bảng `commentpost`
 --
 ALTER TABLE `commentpost`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `congdung`
+-- AUTO_INCREMENT cho bảng `congdung`
 --
 ALTER TABLE `congdung`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `loaimon`
+-- AUTO_INCREMENT cho bảng `loaimon`
 --
 ALTER TABLE `loaimon`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
--- AUTO_INCREMENT for table `monan`
+-- AUTO_INCREMENT cho bảng `monan`
 --
 ALTER TABLE `monan`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `mucdich`
+-- AUTO_INCREMENT cho bảng `mucdich`
 --
 ALTER TABLE `mucdich`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `nhahang`
+-- AUTO_INCREMENT cho bảng `nhahang`
 --
 ALTER TABLE `nhahang`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `nhahanglienket`
+-- AUTO_INCREMENT cho bảng `nhahanglienket`
 --
 ALTER TABLE `nhahanglienket`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `postimage`
+-- AUTO_INCREMENT cho bảng `postimage`
 --
 ALTER TABLE `postimage`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `report_comment_post`
+-- AUTO_INCREMENT cho bảng `report_comment_post`
 --
 ALTER TABLE `report_comment_post`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `theloai`
+-- AUTO_INCREMENT cho bảng `theloai`
 --
 ALTER TABLE `theloai`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT for table `thongke`
+-- AUTO_INCREMENT cho bảng `thongke`
 --
 ALTER TABLE `thongke`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `userpost`
+-- AUTO_INCREMENT cho bảng `userpost`
 --
 ALTER TABLE `userpost`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT for table `video`
+-- AUTO_INCREMENT cho bảng `video`
 --
 ALTER TABLE `video`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `vungmien`
+-- AUTO_INCREMENT cho bảng `vungmien`
 --
 ALTER TABLE `vungmien`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `cacbuocnau`
+-- Các ràng buộc cho bảng `cacbuocnau`
 --
 ALTER TABLE `cacbuocnau`
   ADD CONSTRAINT `cacbuocnau_id_monan_foreign` FOREIGN KEY (`id_monan`) REFERENCES `monan` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `commentmonan`
+-- Các ràng buộc cho bảng `commentmonan`
 --
 ALTER TABLE `commentmonan`
   ADD CONSTRAINT `commentmonan_id_monan_foreign` FOREIGN KEY (`id_monan`) REFERENCES `monan` (`id`),
   ADD CONSTRAINT `commentmonan_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `commentpost`
+-- Các ràng buộc cho bảng `commentpost`
 --
 ALTER TABLE `commentpost`
   ADD CONSTRAINT `commentpost_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `commentpost_id_userpost_foreign` FOREIGN KEY (`id_UserPost`) REFERENCES `userpost` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `loaimon`
+-- Các ràng buộc cho bảng `loaimon`
 --
 ALTER TABLE `loaimon`
   ADD CONSTRAINT `loaimon_id_theloai_foreign` FOREIGN KEY (`id_theloai`) REFERENCES `theloai` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `monan`
+-- Các ràng buộc cho bảng `monan`
 --
 ALTER TABLE `monan`
   ADD CONSTRAINT `monan_id_congdung_foreign` FOREIGN KEY (`id_congdung`) REFERENCES `congdung` (`id`) ON DELETE CASCADE,
@@ -622,34 +701,35 @@ ALTER TABLE `monan`
   ADD CONSTRAINT `monan_id_vungmien_foreign` FOREIGN KEY (`id_vungmien`) REFERENCES `vungmien` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `nhahanglienket`
+-- Các ràng buộc cho bảng `nhahanglienket`
 --
 ALTER TABLE `nhahanglienket`
   ADD CONSTRAINT `nhahanglienket_id_monan_foreign` FOREIGN KEY (`id_monan`) REFERENCES `monan` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `nhahanglienket_id_nhahang_foreign` FOREIGN KEY (`id_nhahang`) REFERENCES `nhahang` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `postimage`
+-- Các ràng buộc cho bảng `postimage`
 --
 ALTER TABLE `postimage`
   ADD CONSTRAINT `postimage_id_post_foreign` FOREIGN KEY (`id_post`) REFERENCES `userpost` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `report_comment_post`
+-- Các ràng buộc cho bảng `report_comment_post`
 --
 ALTER TABLE `report_comment_post`
   ADD CONSTRAINT `report_comment_post_id_commentpost_foreign` FOREIGN KEY (`id_CommentPost`) REFERENCES `commentpost` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `report_comment_post_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `userpost`
+-- Các ràng buộc cho bảng `userpost`
 --
 ALTER TABLE `userpost`
   ADD CONSTRAINT `userpost_id_loaimon_foreign` FOREIGN KEY (`id_loaimon`) REFERENCES `loaimon` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userpost_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `userpost_id_nhahang_foreign` FOREIGN KEY (`id_nhahang`) REFERENCES `nhahang` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userpost_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `video`
+-- Các ràng buộc cho bảng `video`
 --
 ALTER TABLE `video`
   ADD CONSTRAINT `video_id_monan_foreign` FOREIGN KEY (`id_monan`) REFERENCES `monan` (`id`) ON DELETE CASCADE;

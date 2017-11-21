@@ -31,6 +31,11 @@ class UserController extends Controller {
 		$user->tentaikhoan = $request->tentaikhoan;
 		$user->password = bcrypt($request->password);
 
+		$anh = $request->file('anh');
+		$file = $request->file('anh');
+
+		dd($file);
+
 		$user->noibat = $request->noibat;
 		$user->level = $request->rdoUser;
 		$user->save();

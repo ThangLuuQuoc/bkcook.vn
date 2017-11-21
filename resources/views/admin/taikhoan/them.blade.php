@@ -58,7 +58,7 @@
 
                             <div class="form-group">
                                 <label>Ảnh Đại Diện<label>
-                                <input type="file" name="Hinh" class="form-control" required="" />
+                                <input type="file" name="anh" class="form-control" required="" />
                             </div>
 
                             <div class="form-group">
