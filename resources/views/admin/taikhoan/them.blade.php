@@ -48,11 +48,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Mật Khẩu</label>
-                                <input type="password" class="form-control" name="password" placeholder="Mật Khẩu" required="" />
+                                <input id="pass" type="password" class="form-control" name="password" placeholder="Mật Khẩu" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=":  Mật khẩu phải chứa ít nhất một ký tự thường,một ký tự hoa,một chứ số và mật khẩu phải dài hơn 8 ký tự" required />
                             </div>
                             <div class="form-group">
                                 <label>Xác Nhận Mật Khẩu</label>
-                                <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
+                                <input id="passa" type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
                             </div>
                             <hr class="alert-warning">
 
@@ -79,8 +79,12 @@
                                     <input name="rdoUser" value="2" checked="" type="radio">Customer
                                 </label>
                             </div>
+
                             <button type="submit" class="btn btn-success">Thêm Thành Viên</button>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                             <button type="reset"  class="btn btn-warning">Đặt Lại Mặc Định</button>
+
                         <form>
                     </div>
                 </div>
@@ -88,5 +92,8 @@
             </div>
             <!-- /.container-fluid -->
 </div>
+<script type="text/javascript">
+
+</script>
 <!-- /#page-wrapper -->
 @endsection

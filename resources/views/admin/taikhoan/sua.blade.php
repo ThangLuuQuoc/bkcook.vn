@@ -58,9 +58,14 @@
                                 <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
                             </div>
                             <hr class="alert-warning">
-
+                            <label>Ảnh Đại Diện</label>
+                            <br>
                             <div class="form-group">
-                                <label>Ảnh Đại Diện<label>
+                                <img src="{{ $user->anhdaidien }}" alt="Kết nối Internet không ổn định" style="width: 580px;height: 350px">
+                            </div>
+                            <hr class="bg-danger">
+                            <div class="form-group">
+                                <label>Thay Đổi Ảnh Đại Diện<label>
                                 <input type="file" name="Hinh" class="form-control" required="" />
                             </div>
 
@@ -82,13 +87,15 @@
                                     <input name="rdoUser" value="2" checked="" type="radio">Customer
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-success">Thêm Thành Viên</button>
+                            <button type="submit" class="btn btn-success">Sưa Thông Tin Tài Khoản</button>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            &emsp;&emsp;
                             <button type="reset"  class="btn btn-warning">Đặt Lại Mặc Định</button>
                         <form>
                     </div>
                 </div>
                 <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
+        <!-- /.container-fluid -->
 </div>
 @endsection

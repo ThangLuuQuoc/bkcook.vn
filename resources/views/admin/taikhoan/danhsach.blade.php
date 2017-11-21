@@ -20,7 +20,7 @@
                                     <th style="overflow:hidden;" title="Nghề Nghiệp">Nghề Nghiệp</th>
                                     <th style="overflow:hidden;" title="Tài Khoản Gmail">Gmail</th>
                                     <th style="overflow:hidden;" title="Tên Tài Khoản">Tên Tài Khoản</th>
-                                    <th style="overflow:hidden;" title="Password">Password</th>
+                                    <th style="overflow:hidden;" title="Password">Pass-Word</th>
                                     <th style="overflow:hidden;" title="Loại Tài Khoản">Loại Tài Khoản</th>
                                     <th style="overflow:hidden;" title="Nổi Bật">Nổi Bật</th>
                                     <th style="overflow:hidden;" title="Ảnh Đại Diện">Ảnh Đại Diện</th>
