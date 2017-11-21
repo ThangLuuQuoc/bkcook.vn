@@ -18,8 +18,13 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     @if(isset($loaimon))
+<<<<<<< HEAD
                     
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">
+=======
+
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+>>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
                         <thead>
                             <tr align="center">
                                 <th style="overflow:hidden;" title="Tên">Tên</th>
@@ -35,11 +40,19 @@
                         <tbody>
                             @foreach($loaimon as $lm)
                             <tr class="even gradeC" align="center">
+<<<<<<< HEAD
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$lm->ten}}">{{$lm->ten}}</td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$lm->tenkhongdau}}">{{$lm->tenkhongdau}}</td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">@foreach($theloai as $tl) 
                                         @if($tl->id == $lm->id_theloai) 
                                             {{$tl->ten}} 
+=======
+                                <td>{{$lm->ten}}</td>
+                                <td>{{$lm->tenkhongdau}}</td>
+                                <td>@foreach($theloai as $tl)
+                                        @if($tl->id == $lm->id_theloai)
+                                            {{$tl->ten}}
+>>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
                                             @break
                                         @endif
                                     @endforeach

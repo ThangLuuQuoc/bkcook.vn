@@ -5,48 +5,85 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Category
-                            <small>Edit</small>
+                        <h1 class="page-header">Tài Khoản Người Dùng:<i style="color: red;">{{ $user->tentaikhoan }}</i>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+                    <hr class="alert-danger">
+                    <div style="text-align: center">
+                        <h2>Sửa Tài Khoản</h2>
+                    </div>
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="" method="POST">
+                        <form action="user/sua" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <div class="form-group">
-                                <label>Category Parent</label>
-                                <select class="form-control">
-                                    <option value="0">Please Choose Category</option>
-                                    <option value="">Tin Tức</option>
-                                </select>
+                                <label>Họ Và Tên</label>
+                                <input class="form-control" value="{{ $user->hovaten }}" name="fullname" placeholder="Họ và Tên" required="" />
                             </div>
                             <div class="form-group">
-                                <label>Category Name</label>
-                                <input class="form-control" name="txtCateName" placeholder="Please Enter Category Name" />
+                                <label>Giới Tính : </label>
+                                <label class="radio-inline">
+                                    <input name="rdoGT" value="1" checked="" type="radio">Nam
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="rdoGT" value="2" type="radio">Nữ
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="rdoGT" value="3" type="radio">Không Xác Định
+                                </label>
                             </div>
                             <div class="form-group">
-                                <label>Category Order</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Order" />
+                                <label>Tuổi</label>
+                                <input class="form-control" value="{{ $user->tuoi }}" name="tuoi" placeholder="Tuổi" />
                             </div>
                             <div class="form-group">
-                                <label>Category Keywords</label>
-                                <input class="form-control" name="txtOrder" placeholder="Please Enter Category Keywords" />
+                                <label>Công Việc Hiện Tại</label>
+                                <input class="form-control" value="{{ $user->congviec }}" name="congviec" placeholder="Công Việc" />
+                            </div>
+                            <hr class="alert-warning">
+                            <div class="form-group">
+                                <label>Địa Chỉ Gmail</label>
+                                <input type="email" class="form-control" value="{{ $user->email }}" name="email" placeholder="Gmail" required="" />
                             </div>
                             <div class="form-group">
-                                <label>Category Description</label>
+                                <label>Tên Tài Khoản</label>
+                                <input type="text" class="form-control" value="{{ $user->tentaikhoan }}" name="tentaikhoan" placeholder="Tên Đăng Nhập" required="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Mật Khẩu</label>
+                                <input type="password" class="form-control" name="password" placeholder="Mật Khẩu" required="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Xác Nhận Mật Khẩu</label>
+                                <input type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
+                            </div>
+                            <hr class="alert-warning">
+
+                            <div class="form-group">
+                                <label>Ảnh Đại Diện<label>
+                                <input type="file" name="Hinh" class="form-control" required="" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Nổi Bật</label>
+                                <input type="text" class="form-control" value="{{ $user->noibat }}" name="noibat" placeholder=""/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Thông Tin Cá Nhân</label>
                                 <textarea class="form-control" rows="3"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Category Status</label>
+                                <label>Loại Tài Khoản : </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="1" checked="" type="radio">Visible
+                                    <input name="rdoUser" value="1" type="radio">Admin-CT
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="2" type="radio">Invisible
+                                    <input name="rdoUser" value="2" checked="" type="radio">Customer
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">Category Edit</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button type="submit" class="btn btn-success">Thêm Thành Viên</button>
+                            <button type="reset"  class="btn btn-warning">Đặt Lại Mặc Định</button>
                         <form>
                     </div>
                 </div>
