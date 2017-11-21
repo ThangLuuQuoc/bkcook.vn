@@ -16,6 +16,7 @@ class UserController extends Controller {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
+
 		$this->validate($request, [
 			'email' => 'required|email|unique:users,email',
 			'tentaikhoan' => 'required|unique:users,tentaikhoan|min:4',

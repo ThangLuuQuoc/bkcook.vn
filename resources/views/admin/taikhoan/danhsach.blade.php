@@ -45,7 +45,6 @@
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->noibat }}</td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="{{$us->anhdaidien }}" alt="" width="50px" height="50px"></td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$us->created_at }}">{{$us->created_at }}</td>
-
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="user/sua/{{$us->id }}">Sửa</a></td>
                                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="user/xoa/{{$us->id }}">Xóa</a></td>
                                 </tr>
