@@ -19,14 +19,18 @@ class VungMienController extends Controller
             return view('admin.vungmien.sua',compact('vungmien'));
         }
         public function postSuaVungMien($id,Request $req){
-             $errors=$this->validate($req,
-                [
-                    'ten'=>'unique:VungMien'
-                ],
-                [ 
-                    'ten'=>"tên vùng miền này đã tồn tại"
-                ]);
-            $b= VungMien::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten),'vitri'=>$req->vitri,'gioithieu'=>$req->gioithieu]);
+             $anhdaidien="";
+            if ($req->file('anh')) {
+                $destinationPath="uploads/vungmien";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $anhdaidien=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
+            $b= VungMien::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten),'vitri'=>$req->vitri,'gioithieu'=>$req->gioithieu,'anh'=>$anhdaidien]);
             return redirect()->route('danhSachVungMien',['vungmien'=>$this->vungmien]);
         }
     public function postThemVungMien(Request $req){
@@ -42,6 +46,16 @@ class VungMienController extends Controller
             $vungmien->tenkhongdau=changeTitle($req->ten);
             $vungmien->vitri=$req->vitri;
             $vungmien->gioithieu=$req->gioithieu;
+             if ($req->file('anh')) {
+                $destinationPath="uploads/vungmien";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $vungmien->anh=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
             $vungmien->save();
             return redirect()->route('danhSachVungMien',['vungmien'=>$this->vungmien]);
         }

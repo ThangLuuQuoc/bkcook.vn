@@ -19,26 +19,26 @@
                     <!-- /.col-lg-12 -->
                     @if(isset($congdung))
                     
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">
                         <thead>
                             <tr align="center">
-                                <th>Tên</th>
-                                <th>Tên không dấu</th>
-                                 <th>ngày tạo</th>
-                                <!-- <th>Status</th> -->
-                                <th>Xoá</th>
-                                <th>Sửa</th>
+                                <th style="overflow:hidden;" title="Tên">Tên</th>
+                                <th style="overflow:hidden;" title="Tên Không dấu">Tên không dấu</th>
+                                 <th style="overflow:hidden;" title="ảnh">ảnh</th>
+                                 <th style="overflow:hidden;" title="Ngày tạo">ngày tạo</th>
+                                <th style="overflow:hidden;" title="Xoá Công Dụng">Xoá</th>
+                                <th style="overflow:hidden;" title="Sửa Công Dụng">Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($congdung as $cd)
                             <tr class="even gradeC" align="center">
-                                <td>{{$cd->ten}}</td>
-                                <td>{{$cd->tenkhongdau}}</td>
-                                <td>{{$cd->created_at}}</td>
-                                <!-- <td>Ẩn</td> -->
-                                <td class="center text-info"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaCongDung',$cd->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Xoá</a></td>
-                                <td class="center text-info"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaCongDung',$cd->id)}}">Sửa</a></td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cd->ten}}">{{$cd->ten}}</td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cd->tenkhongdau}}">{{$cd->tenkhongdau}}</td>
+                                <td><img src="uploads/congdung/{{$cd->anh}}" alt="" width="50px" height="50px"></td>
+                                <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$cd->created_at}}">{{$cd->created_at}}</td>
+                                <td class="text-info" ><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaCongDung',$cd->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Xoá</a></td>
+                                <td class="text-info"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaCongDung',$cd->id)}}">Sửa</a></td>
                             </tr>
                              @endforeach
                         </tbody>

@@ -18,26 +18,28 @@
                 @endif
             </div>
             <!-- /.col-lg-12 -->
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">         
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">         
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>Tên không dấu</th>
-                        <th>Ngày tạo</th>
-                        <th>Ngày cập nhật</th>
-                        <th>Xoá</th>
-                        <th>Sửa</th>
+                        <th style="overflow:hidden;" title="ID">ID</th>
+                        <th style="overflow:hidden;" title="Tên">Tên</th>
+                        <th style="overflow:hidden;" title="Tên không dấu">Tên không dấu</th>
+                         <th style="overflow:hidden;" title="Ảnh">Ảnh</th>
+                        <th style="overflow:hidden;" title="Ngày tạo">Ngày tạo</th>
+                        <th style="overflow:hidden;" title="Ngày cập nhật">Ngày cập nhật</th>
+                        <th style="overflow:hidden;" title="Xoá thể loại">Xoá</th>
+                        <th style="overflow:hidden;" title="Sửa thể loại">Sửa</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($theloai as $ds)
                     <tr class="odd gradeX" align="center">                      
-                        <td>{{$ds -> id}}</td>
-                        <td>{{$ds -> ten}}</td>
-                        <td>{{$ds -> tenkhongdau}}</td>
-                        <td>{{$ds -> created_at}}</td>
-                        <td>{{$ds -> updated_at}}</td>                                
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$ds -> id}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->ten}}">{{$ds -> ten}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->tenkhongdau}}">{{$ds -> tenkhongdau}}</td>
+                         <td><img src="uploads/theloai/{{$ds->anh}}" alt="" width="50px" height="50px"></td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->created_at}}">{{$ds -> created_at}}</td>
+                        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->updated_at}}">{{$ds -> updated_at}}</td>                                
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaTheLoai', $ds -> id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')""> Xóa</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaTheLoai', $ds -> id)}}">Sửa</a></td>
                     </tr>

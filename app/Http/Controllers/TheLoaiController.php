@@ -20,14 +20,18 @@ class TheLoaiController extends Controller
             return view('admin.theloai.sua',compact('theloai'));
         }
         public function postSuaTheLoai($id,Request $req){
-            $errors=$this->validate($req,
-                [
-                    'ten'=>'unique:Theloai'
-                ],
-                [ 
-                    'ten'=>"tên thể loại này đã tồn tại"
-                ]);
-            $b= theloai::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten)]);
+             $anhdaidien="";
+            if ($req->file('anh')) {
+                $destinationPath="uploads/theloai";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $anhdaidien=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
+            $b= theloai::where('id',$id)->update(['ten'=>$req->ten,'tenkhongdau'=>changeTitle($req->ten),'anh'=>$anhdaidien]);
             return redirect()->route('danhSachTheLoai',['theloai'=>$this->theloai]);
         }
     public function postThemTheLoai(Request $req){
@@ -41,6 +45,16 @@ class TheLoaiController extends Controller
             $theloai= new TheLoai();
             $theloai->ten=$req->ten;
             $theloai->tenkhongdau=changeTitle($req->ten);
+            if ($req->file('anh')) {
+                $destinationPath="uploads/theloai";
+                $file=$req->anh;
+                $extension=$file->getClientOriginalExtension();
+                $filename= $req->file('anh')->getClientOriginalName();
+                $file->move($destinationPath,$filename);
+                $theloai->anh=$filename;
+            } else {
+                dd("có lỗi xảy ra");
+            }
             $theloai->save();
             return redirect()->route('danhSachTheLoai',['theloai'=>$this->theloai]);
         }

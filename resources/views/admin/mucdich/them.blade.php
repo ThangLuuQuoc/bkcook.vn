@@ -22,12 +22,16 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form name="themMucDich" action="{{route('themMucDich')}}" method="POST" onsubmit="return validateForm()">
+                        <form name="themMucDich" action="{{route('themMucDich')}}" enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                           
                             <div class="form-group">
                                 <label>Tên</label>
                                 <input class="form-control" name="ten" required placeholder="nhập tên mục đích"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Ảnh Đại Diện<label>
+                                <input type="file" name="anh" class="form-control" />
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
