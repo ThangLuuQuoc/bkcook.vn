@@ -6,7 +6,6 @@ use App\Models\User;
 use File;
 use Illuminate\Http\Request;
 
-
 class UserController extends Controller {
 
 	public function getDanhSach() {
@@ -17,9 +16,6 @@ class UserController extends Controller {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
-<<<<<<< HEAD
-		$photo="";
-=======
 		$this->validate($request, [
 			'email' => 'required|email|unique:users,email',
 			'tentaikhoan' => 'required|unique:users,tentaikhoan|min:4',
@@ -33,7 +29,6 @@ class UserController extends Controller {
 				'passwordAgain.same' => 'Mật Khẩu Xác Thực Không Dúng',
 			]);
 
->>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
 		$user = new User;
 		$user->hovaten = $request->fullname;
 		$gioitinh = $request->rdoGT;
@@ -50,25 +45,12 @@ class UserController extends Controller {
 		$user->tentaikhoan = $request->tentaikhoan;
 		$user->password = bcrypt($request->password);
 
-<<<<<<< HEAD
-		if ($request->file('Hinh')) {
-			// dd($request->file('Hinh'));
-			$destinationPath="uploads/avatar";
-			$file=$request->Hinh;
-			$extension=$file->getClientOriginalExtension();
-			$filename= $request->file('Hinh')->getClientOriginalName().".".$extension;
-			$file->move($destinationPath,$filename);
-			$user->anhdaidien=$filename;
-		} else {
-			$user->anhdaidien = "";
-=======
 		// Uploads file
 		$file = $request->file('anh');
 		$filename = $file->getClientOriginalName();
 		$Hinh = str_random(4) . $filename;
 		while (file_exists('uploads/customer/avatar/' . $Hinh)) {
 			$Hinh = str_random(4) . $filename;
->>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
 		}
 		$file->move('uploads/customer/avatar', $Hinh);
 		$user->anhdaidien = 'uploads/customer/avatar/' . $Hinh;

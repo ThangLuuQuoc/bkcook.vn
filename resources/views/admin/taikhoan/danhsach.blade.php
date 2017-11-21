@@ -43,12 +43,7 @@
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$us->password }}">{{$us->password }}</td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->level }}</td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->noibat }}</td>
-
-<<<<<<< HEAD
-                                    <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="{{$us->anhdaidien }}"alt="" width="50px" height="50px"></td>
-=======
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="{{$us->anhdaidien }}" alt="" width="50px" height="50px"></td>
->>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$us->created_at }}">{{$us->created_at }}</td>
 
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="user/sua/{{$us->id }}">Sửa</a></td>
