@@ -44,7 +44,7 @@
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->level }}</td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$us->noibat }}</td>
 
-                                    <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="uploads/customer/avatar/{{$us->anhdaidien }}" alt="" width="50px" height="50px"></td>
+                                    <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><img src="{{$us->anhdaidien }}" alt="" width="50px" height="50px"></td>
                                     <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$us->created_at }}">{{$us->created_at }}</td>
 
                                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="user/sua/{{$us->id }}">Sửa</a></td>

@@ -18,7 +18,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     @if(isset($loaimon))
-                    
+
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -36,9 +36,9 @@
                             <tr class="even gradeC" align="center">
                                 <td>{{$lm->ten}}</td>
                                 <td>{{$lm->tenkhongdau}}</td>
-                                <td>@foreach($theloai as $tl) 
-                                        @if($tl->id == $lm->id_theloai) 
-                                            {{$tl->ten}} 
+                                <td>@foreach($theloai as $tl)
+                                        @if($tl->id == $lm->id_theloai)
+                                            {{$tl->ten}}
                                             @break
                                         @endif
                                     @endforeach

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
+use File;
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
@@ -14,6 +16,10 @@ class UserController extends Controller {
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
+		$this->validate($request, [
+			'email' => 'required|email|unique:users,email',
+
+		]);
 
 		$user = new User;
 		$user->hovaten = $request->fullname;
@@ -31,10 +37,16 @@ class UserController extends Controller {
 		$user->tentaikhoan = $request->tentaikhoan;
 		$user->password = bcrypt($request->password);
 
-		$anh = $request->file('anh');
+		// Uploads file
 		$file = $request->file('anh');
-
-		dd($file);
+		$filename = $file->getClientOriginalName();
+		$Hinh = str_random(4) . $filename;
+		while (file_exists('uploads/customer/avatar/' . $Hinh)) {
+			$Hinh = str_random(4) . $filename;
+		}
+		$file->move('uploads/customer/avatar', $Hinh);
+		$user->anhdaidien = 'uploads/customer/avatar/' . $Hinh;
+		// hết uploads file
 
 		$user->noibat = $request->noibat;
 		$user->level = $request->rdoUser;
