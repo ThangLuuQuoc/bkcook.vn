@@ -82,24 +82,24 @@
 				<h5>Bài viết liên quan</h5>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha4.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở tái, món ăn giàu dinh dưỡng</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Phở tái, món ăn giàu dinh dưỡng</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha7.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở nạm gầu, khó nhưng rất dễ</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Phở nạm gầu, khó nhưng rất dễ</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/buoc2.2.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Giai thoại phở Hà thành</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Giai thoại phở Hà thành</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha11.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở Lý Quốc Sư - Dư âm những người Tràng An cuối cùng</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Dư âm những người Tràng An cuối cùng</a></p>
 				</div>
 
 			</div>
 
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">

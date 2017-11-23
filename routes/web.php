@@ -64,9 +64,37 @@ Route::get('login', function () {
 Route::get('singup', function () {
 	return view('customer.singup');
 });
-Route::get('dangbai', function () {
-	return view('customer.dangbai');
+Route::get('baiviet', function () {
+	return view('customer.baiviet');
 });
+
+//Trang chi tiết
+Route::get('chitiettheloai', function () {
+	return view('customer.chitiettheloai');
+});
+
+Route::get('chitietloaimon', function () {
+	return view('customer.chitietloaimon');
+});
+
+Route::get('chitietmucdich', function () {
+	return view('customer.chitietmucdich');
+});
+
+Route::get('chitietnhahang', function () {
+	return view('customer.chitietnhahang');
+});
+
+Route::get('chitietthanhvien', function () {
+	return view('customer.chitietthanhvien');
+});
+
+Route::get('chitietvungmien', function () {
+	return view('customer.chitietvungmien');
+});
+
+
+
 //test Model
 // Route::get('mon an', function () {
 // 	$monan = MonAn::all()->toArray();

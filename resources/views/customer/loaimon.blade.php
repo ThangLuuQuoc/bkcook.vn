@@ -1,45 +1,100 @@
 @extends('customer.layouts.master')
+@include("customer.layouts.home")
 @section('content')
 
 <section id="loaimon" class="loaimon">
     <div class="container">
+        <h3 class="text-success text-center">Loại món</h3>
         <div class="row">
-            <div class="service_border_raund text-center"></div>
-            <div class="main_service_area sections text-center">
-                <div class="head_title text-center">
-                    <h2>Loại món</h2>
-                    <div class="separator"></div>
-                </div>
-				
-                <div class="col-sm-3">
-                    <div class="single_service"> 
-                        <img class="bg-img" src="https://media.cooky.vn/recipe/g2/19494/s320/recipe19494-636274205695226444.jpg">
-						<div>Súp</div>
-                    </div>
-                </div>
-				
-                <div class="col-sm-3">
-					<div class="single_service"> 
-						<img class="bg-img" src="https://media.cooky.vn/recipe/g1/537/s320/recipe537-635620986017152292.jpg">
-						<div>Lẩu</div>
-					</div>
-                </div>
-				
-                <div class="col-sm-3">
-                    <div class="single_service"> 
-						<img class="bg-img" src="https://media.cooky.vn/recipe/g1/5949/s320/recipe5949-636258644291409028.png">
-						<div>Bánh</div>
-					</div>
-                </div>
-				
-				<div class="col-sm-3">
-                    <div class="single_service"> 
-						<img class="bg-img" src="https://media.cooky.vn/recipe/g3/21228/s320/recipe21228-636386656291784619.jpg">
-						<div>Snack</div>
-					</div>
-                </div>
 
-            </div>
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Súp</h5>
+                <img src="vendor_customer/assets/images/sup.jpg" alt="">
+                <p class="mota">Súp, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Lẩu</h5>
+                <img src="vendor_customer/assets/images/lau.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm. Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Bánh</h5>
+                <img src="vendor_customer/assets/images/banh.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+            
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Snack</h5>
+                <img src="vendor_customer/assets/images/snack.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Súp</h5>
+                <img src="vendor_customer/assets/images/sup.jpg" alt="">
+                <p class="mota">Súp, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Lẩu</h5>
+                <img src="vendor_customer/assets/images/lau.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm. Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Bánh</h5>
+                <img src="vendor_customer/assets/images/banh.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+            
+            <a href="#" class="fooditem col-sm-3 col-xs-12">
+                <h5 class="tieude">Snack</h5>
+                <img src="vendor_customer/assets/images/snack.jpg" alt="">
+                <p class="mota">Lẩu, là món ăn lỏng như canh kiểu Âu, được làm bằng nhiều nguyên liệu kết hợp với nhau như thịt, cá và rau, đậu, trái cây, nước hoặc các chất lỏng khác, có thêm gia vị, thường ăn vào đầu bữa cơm kiểu Âu như một món khai vị hay bữa điểm tâm.</p>
+                <span class="thechia"></span>
+                <span class="social">
+                    <span><i class="fa fa-cutlery"></i> 17 món ăn</span>
+                    <span><i class="fa fa-newspaper-o"></i> 11 bài viết</span>
+                </span>
+            </a>
+
         </div>
     </div>
 </section>

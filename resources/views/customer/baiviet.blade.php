@@ -1,7 +1,7 @@
 @extends('customer.layouts.master')
 
 @section('content')
-@include('customer.theloai')
+<section id="baiviet" class="baiviet">
 	<div class="container">
 		<div class="row">
 			<div class="alert-success">
@@ -14,4 +14,5 @@
 		</div>
 
 	</div>
+</section>
 @endsection
