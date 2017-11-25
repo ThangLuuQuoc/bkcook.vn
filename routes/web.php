@@ -138,9 +138,7 @@ Route::get('login', function () {
 Route::get('singup', function () {
 	return view('customer.singup');
 });
-Route::get('dangbai', function () {
-	return view('customer.dangbai');
-});
+Route::get('dangbai', ['as'=>'dangBai','uses'=>'DangBaiController@loadDangBai']);
 //test Model
 // Route::get('mon an', function () {
 // 	$monan = MonAn::all()->toArray();
@@ -208,3 +206,7 @@ Route::get('admin/monan/xoabuocnau/{id_monan}/{id_buocnau}', [
 	'as' => 'xoaBuocNau',
 	'uses' => 'CacBuocNauController@xoaBuocNau'
 ]);
+
+//ajax 
+
+Route::get('findLoaiMon','DangBaiController@findLoaiMon');

@@ -68,11 +68,11 @@
                                             <span class="fa fa-search"></span></a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                    <form class="navbar-form" role="search">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Search">
-                                                        </div>
-                                                    </form>
+                                                <form class="navbar-form" role="search">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="Search">
+                                                    </div>
+                                                </form>
                                             </li>
                                         </ul>
                                     </li>
@@ -117,30 +117,65 @@
 			<div class="row" style="margin-bottom:-10px ">							
 			    <div class="panel panel-default">
                     <div class="panel-body">
-                    	<div class="row">
-                    		<dir class="col-sm-2">
-                    			<span>
-	                    			<img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive avatar-user">
-	                    		</span>
-                    		</dir>
-                    		<div class="col-sm-10" style="margin-left: -40px;margin-top: 20px">
-                    			<div class="row">
-                    				<span>                 			
-		                                 <textarea type="text" class="form-control textarea-post-post" placeholder="Hôm nay bạn thế nào "></textarea>
-		                            </span> 
-                    			</div>
-                    			<div class="row">
-                    				<div class="row action-post-post" style="display: none">
-	                        			<div class="pull-right" style="padding-right: 30px;margin-top: -10px" >
-	            							<a class="btn btn-default delete-post-post">Hủy</a>
-	            							<a class="btn btn-default send-post-post">Đăng bài</a>
-	            						</div>
-	                        		</div>
-                    			</div>
-                    		</div>
-                    		             		                 			               		
-                    	</div>
-                     
+                        <form action="#" method="">
+                            <div class="row" style="margin-top: 20px">
+                                <div class="col-sm-2">
+                                    <span>
+                                        <img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive avatar-user">
+                                    </span>
+                                </div>
+                                <div class="col-sm-10" style="margin-left: -40px;margin-top: 5px">
+                                    <div class="row">
+                                        <span>                          
+                                            <textarea type="text" class="form-control textarea-post-post" placeholder="Hôm nay bạn thế nào "></textarea>
+                                        </span> 
+                                    </div>
+                                    <div class="row" style="margin-top: 10px;background-color: #fafafa">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-3" style="margin-top: 20px;">
+                                                    <div style="margin-top: -20px;margin-left: 20px">
+                                                       <label for="files" class="select-image-button-post-post btn">Thêm ảnh</label>
+                                                       <input id="files" style="visibility:hidden;" type="file">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3" style="margin-top: 20px">
+                                                    <select class="select-post-post-food-category">
+                                                        <option selected disabled>-Chọn thể loại-</option>
+                                                        @foreach($food_category as $element)
+                                                            <option value="{{$element->id}}">{{$element->ten}}</option>
+                                                        @endforeach
+                                                      
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-3" style="margin-top: 20px">
+                                                    <select class="select-post-post-type-dish">
+                                                      <option selected disabled>-Chọn loại món-</option>
+                                                      
+                                                    </select>
+                                                </div>     
+                                            </div>      
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="row" id="selectedFiles">
+                                                        
+                                                    </div>
+                                                </div>                                                     
+                                            </div>                                        
+                                        </div>                                     
+                                    </div>
+                                    <div class="row">
+                                        <div class="row action-post-post" style="display: none">
+                                            <div class="pull-right" style="padding-right: 30px;margin-top: -10px" >
+                                                <button class="delete-post-post btn btn-default">Hủy</button>
+                                                <button class="send-post-post btn btn-default">Đăng bài</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                    
+                            </div>     
+                        </form>                    
                     </div>
                 </div>
 		        
@@ -693,6 +728,19 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
+
+        $(".select-image-button-post-post").click(function(){
+            var sum = $("#selectedFiles .sub-img-post-post").length;
+            if(sum >-1 ) {
+                $(".action-post-post").show();
+            }
+
+        });
+
+        $("#selectedFiles").change(function(){
+            $(".action-post-post").hide();
+        });
+
 	    $(".reply").click(function(){
 	    	$(".user-post-reply-area").toggle();	
 	    	var text = $(".user-post-reply-comment").val();
@@ -785,10 +833,120 @@
             $("#modal-signin").modal("hide");
             $("#modal-signup").modal();
         });
+
+        $(".send-post-post").click(function(){
+            $(".send-post-post").css("background-color","428bca");
+            $(".send-post-post").css("opacity","80");
+            $(".send-post-post").css("color","#fff");
+        });
+
+        $(".delete-post-post").click(function(){
+            $(".delete-post-post").css("border-radius","4px");
+            $(".delete-post-post").css("background-color","#fff");
+            $(".delete-post-post").css("color","black");
+            $(".delete-post-post").css("min-width","50px");
+            $(".delete-post-post").css("height","30px");
+            $(".delete-post-post").css("font-size","13px");
+        });
+
 	});
 
 	
+
 </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".select-post-post-food-category").change(function() {
+            // console.log("hahaha do ngok");
+            var food_category_id = $(this).val();
+            // console.log(food_category_id);
+            var op='';
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to("findLoaiMon")!!}',
+                data:{'id':food_category_id},
+                success:function(data){
+                    // console.log('success');
+                    console.log(data);
+                    op +='<option value="0" selected disabled>-Chọn loại món-</option>';
+                    for(var i=0;i<data.length;i++){
+                        op +='<option value="'+data[i].id+'">'+data[i].ten+'</option>';
+                    }
+                    $('.select-post-post-type-dish').html(" ");
+                    $('.select-post-post-type-dish').append(op);
+                },
+                error:function() {
+                    console.log('error');
+                }
+            });
+        });
+    });
+</script>
+<script>
+    var selDiv = "";
+    var storedFiles = [];
+    
+    $(document).ready(function() {
+        $("#files").on("change", handleFileSelect);
+        
+        selDiv = $("#selectedFiles"); 
+        $("#myForm").on("submit", handleForm);
+        
+        $("body").on("click", ".selFile", removeFile);
+    });
+        
+    function handleFileSelect(e) {
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        filesArr.forEach(function(f) {          
+
+            if(!f.type.match("image.*")) {
+                return;
+            }
+            storedFiles.push(f);
+            
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html = "<div class='col-sm-3 sub-img-post-post'><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selFile img-responsive' title='Click to remove' style='width:100%;height:100px'>" + "<br clear=\"left\"/></div>";
+                selDiv.append(html);
+            }
+            reader.readAsDataURL(f); 
+        });
+        
+    }
+        
+    function handleForm(e) {
+        e.preventDefault();
+        var data = new FormData();
+        
+        for(var i=0, len=storedFiles.length; i<len; i++) {
+            data.append('files', storedFiles[i]); 
+        }
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'handler.cfm', true);
+        
+        xhr.onload = function(e) {
+            if(this.status == 200) {
+                console.log(e.currentTarget.responseText);  
+                alert(e.currentTarget.responseText + ' items uploaded.');
+            }
+        }
+        
+        xhr.send(data);
+    }
+        
+    function removeFile(e) {
+        var file = $(this).data("file");
+        for(var i=0;i<storedFiles.length;i++) {
+            if(storedFiles[i].name === file) {
+                storedFiles.splice(i,1);
+                break;
+            }
+        }
+        $(this).parent().remove();
+    }
+    </script>
 <script type="text/javascript">
 	autosize(document.querySelectorAll('textarea'));
 </script>
