@@ -9,12 +9,15 @@ use App\Models\LoaiMon;
 use App\Models\CongDung;
 use App\Models\VungMien;
 use App\Models\CacBuocNau;
+use App\Models\Video;
+use File;
 
 class MonAnController extends Controller
 {
     public function getDanhSachMonAn() {
     	$monan = MonAn::all();
-    	return view('admin.monan.danhsach', compact('monan'));
+        $buocnau = CacBuocNau::all();
+    	return view('admin.monan.danhsach', compact('monan', 'buocnau'));
     }
 
     public function getViewThemMonAn() {
@@ -51,8 +54,9 @@ class MonAnController extends Controller
         $loaimon = LoaiMon::all();
         $congdung = CongDung::all();
         $vungmien = VungMien::all();
+        $video = Video::where('id_monan', $id) -> first();
         $cacbuocnau = CacBuocNau::where('id_monan', $id) -> get();
-    	return view('admin.monan.sua', compact('monan', 'mucdich', 'loaimon', 'congdung', 'vungmien', 'cacbuocnau'));
+    	return view('admin.monan.sua', compact('monan', 'mucdich', 'loaimon', 'congdung', 'vungmien', 'cacbuocnau', 'video'));
     }
 
     public function suaMonAn(Request $req, $id) {
@@ -77,7 +81,11 @@ class MonAnController extends Controller
     }
 
     public function xoaMonAn($id) {
+        $anh = 'uploads/monan/' . CacBuocNau::where('id_monan', $id) -> value('image');
+        $video = 'uploads/video/' . Video::where('id_monan', $id) -> value('ten');
     	$monan = MonAn::find($id);
+        File::delete($video);
+        File::delete($anh);
     	$monan -> delete();
     	return redirect() -> route('danhSachMonAn');
     }

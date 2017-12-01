@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="vendor_customer/assets/css/fonticons.css">
     <link rel="stylesheet" href="vendor_customer/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor_customer/assets/css/bootstrap.min.css">
+
     <!--For Plugins external css-->
     <link rel="stylesheet" href="vendor_customer/assets/css/teamslide.css"/>
     <link rel="stylesheet" href="vendor_customer/assets/css/plugins.css"/>
@@ -30,18 +31,21 @@
     <link rel="stylesheet" type="text/css" href="vendor_customer/assets/css/modalHeader.css">
     <!--Theme Responsive css-->
     <link rel="stylesheet" href="vendor_customer/assets/css/responsive.css"/>
-    <link rel="stylesheet" type="text/css" href="vendor_customer/vendor/css/mycss.css">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor_customer/vendor/css/mycss.css"> -->
+    <script src="vendor_customer/assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="vendor_customer/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body data-spy="scroll" data-target="#main_menu" data-offset="160">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
 @include("customer.layouts.header")
-@include("customer.layouts.home")
+<!-- @include("customer.layouts.home") -->
+<section id="content" class="content container-fluid">
 @yield('content')
+</section>
 @include('customer.layouts.couter')
 @include('customer.layouts.contact')
 @include('customer.layouts.footer')
@@ -53,7 +57,6 @@
 </div>
 
 
-<script src="vendor_customer/assets/js/vendor/jquery-1.11.2.min.js"></script>
 <script src="vendor_customer/assets/js/vendor/bootstrap.min.js"></script>
 <script src="vendor_customer/assets/js/jquery.easypiechart.min.js"></script>
 <script src="vendor_customer/assets/js/jquery.mixitup.min.js"></script>
@@ -77,5 +80,47 @@
 -->
 <script src="vendor_customer/assets/js/plugins.js"></script>
 <script src="vendor_customer/assets/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.linktheloai').click(function(event) {
+            window.location = "chitiettheloai/";
+            return false;
+        });
+
+        $('.linkloaimon').click(function(event) {
+            window.location = "chitietloaimon/";
+            return false;
+        });
+
+        $('.linkmucdich').click(function(event) {
+            window.location = "chitietmucdich/";
+            return false;
+        });
+
+        $('.linkvungmien').click(function(event) {
+            window.location = "chitietvungmien/";
+            return false;
+        });
+
+        $('.linkdangbai').click(function(event) {
+            window.location = "dangbai/";
+            return false;
+        });
+
+        $('.linknhahang').click(function(event) {
+            window.location = "chitietnhahang/";
+            return false;
+        });
+
+        $('.linkthanhvien').click(function(event) {
+            window.location = "thanhvien/";
+            return false;
+        });
+
+        $('.linkmonan').click(function(event) {
+            
+        });
+    });
+</script>
 </body>
 </html>

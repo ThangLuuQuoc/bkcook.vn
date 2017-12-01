@@ -114,8 +114,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-default">Thêm</button>                   
-                    <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Cancel</button>
+                    <div class="col-md-3"><button type="submit" class="btn btn-default">Thêm</button></div>
+                    <div class="col-md-3"><a href="{{route('danhSachMonAn')}}" class="btn btn-default">Cancel</a></div>
                     <form>
                     </div>
                 </div>

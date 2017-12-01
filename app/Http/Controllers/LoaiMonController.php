@@ -30,7 +30,7 @@ class LoaiMonController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $anhdaidien=$filename;
+                $anhdaidien='uploads/loaimon/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }
@@ -60,7 +60,7 @@ class LoaiMonController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $loaimon->anh=$filename;
+                $loaimon->anh='uploads/loaimon/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }

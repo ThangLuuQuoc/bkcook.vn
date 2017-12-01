@@ -28,12 +28,19 @@
                         <label>Tên thể loại</label>
                         <input class="form-control" name="ten" value="{{$theloai -> ten}}" required />
                     </div>
-                     <div class="form-group">
-                        <label>Ảnh Đại Diện<label>
-                        <input type="file" name="anh" class="form-control" />
+                    <div class="form-group">
+                              <label for="files" class="btn bg-info">Chọn ảnh đại diện</label>
+                              <input id="files" style="visibility:hidden;" required type="file" name="anh">
                     </div>
-                    <button type="submit" class="btn btn-default">Sửa</button>
-                    <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
+                    <div class="form-group">
+                                <td><img src="{{$theloai->anh}}" alt="" width="150px" height="150px"></td>
+                             </div>
+                    <div class="form-group" >
+                                <div class="col-md-4 col-md-offset-3 container-fluid">
+                                    <button type="submit" class="btn btn-primary pull-left">Lưu</button>
+                                    <button type="button" class="btn btn-warning pull-right" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
+                                </div>
+                            </div>
                     <form>
                     </div>
                 </div>

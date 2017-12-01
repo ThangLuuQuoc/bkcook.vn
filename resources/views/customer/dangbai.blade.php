@@ -1,4 +1,4 @@
-<head>
+    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>@yield('Ẩm thực quanh ta')</title>
@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="vendor_customer/vendor/css/mycss.css">
     <link rel="stylesheet" type="text/css" href="vendor_customer/assets/css/dangbai.css">
     <script src="vendor_customer/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" style="background-color: #e5e5e5">
 <!--[if lt IE 8]>
@@ -58,10 +58,10 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="trangchu">Trang Chủ</a></li>
-                                    <li><a href="#theloai">Thể Loại</a></li>
-                                    <li><a href="#loaimon">Loại Món</a></li>
-                                    <li><a href="#mucdich">Mục Đích</a></li>
-                                    <li><a href="#vungmien">Vùng Miền</a></li>
+                                    <li><a href="theloai">Thể Loại</a></li>
+                                    <li><a href="loaimon">Loại Món</a></li>
+                                    <li><a href="mucdich">Mục Đích</a></li>
+                                    <li><a href="vungmien">Vùng Miền</a></li>
                                     <li>
                                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
                                                aria-expanded="false">
@@ -76,10 +76,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#monan">Món Ăn</a></li>
+                                    <li><a href="monan">Món Ăn</a></li>
                                     <li><a href="dangbai">Bài Viết</a></li>
-                                    <li><a href="#nhahang">Nhà Hàng Liên Kết</a></li>
-                                    <li><a href="#thanhvien">Top Thành Viên</a></li>
+                                    <li><a href="nhahang">Nhà Hàng Liên Kết</a></li>
+                                    <li><a href="thanhvien">Top Thành Viên</a></li>
                                     <li><a href="javascript:void(0)" class="signin">Đăng Nhập</a></li>
                                     <li><a href="javascript:void(0)" class="signup">Đăng Ký</a></li>
 
@@ -112,12 +112,12 @@
 </header> <!--End of header -->
 
 <section class="wide-box">
-	<div class="container"> 
+	<div class="container">
 		<div class="col-md-8">
-			<div class="row" style="margin-bottom:-10px ">							
+			<div class="row" style="margin-bottom:-10px ">
 			    <div class="panel panel-default">
                     <div class="panel-body">
-                        <form action="#" method="">
+                        <form  method="get" class="form-post-post">
                             <div class="row" style="margin-top: 20px">
                                 <div class="col-sm-2">
                                     <span>
@@ -126,9 +126,9 @@
                                 </div>
                                 <div class="col-sm-10" style="margin-left: -40px;margin-top: 5px">
                                     <div class="row">
-                                        <span>                          
+                                        <span>
                                             <textarea type="text" class="form-control textarea-post-post" placeholder="Hôm nay bạn thế nào "></textarea>
-                                        </span> 
+                                        </span>
                                     </div>
                                     <div class="row" style="margin-top: 10px;background-color: #fafafa">
                                         <div class="col-sm-12">
@@ -139,30 +139,30 @@
                                                        <input id="files" style="visibility:hidden;" type="file">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3" style="margin-top: 20px">
+                                                <div class="col-sm-3" style="margin-top: 30px;margin-left: 110px;">
                                                     <select class="select-post-post-food-category">
                                                         <option selected disabled>-Chọn thể loại-</option>
                                                         @foreach($food_category as $element)
                                                             <option value="{{$element->id}}">{{$element->ten}}</option>
                                                         @endforeach
-                                                      
+
                                                     </select>
                                                 </div>
-                                                <div class="col-sm-3" style="margin-top: 20px">
+                                                <div class="col-sm-3" style="margin-top: 30px;margin-left: 10px; ">
                                                     <select class="select-post-post-type-dish">
                                                       <option selected disabled>-Chọn loại món-</option>
-                                                      
+
                                                     </select>
-                                                </div>     
-                                            </div>      
+                                                </div>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="row" id="selectedFiles">
-                                                        
+
                                                     </div>
-                                                </div>                                                     
-                                            </div>                                        
-                                        </div>                                     
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="row action-post-post" style="display: none">
@@ -173,20 +173,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                                                                                    
-                            </div>     
-                        </form>                    
+
+                            </div>
+                        </form>
                     </div>
                 </div>
-		        
+
 			</div>
-            
+
             <!-- list user post-->
 			<div class="row list-user-post">
-						
+
 			    <div class="panel panel-default user-post">
                     <div class="panel-body">
-                     	<div class="row user-post-header">                		
+                     	<div class="row user-post-header">
                      		<div class="col-sm-2">
             		    		<img src="vendor_customer/assets/images/na1.jpg" class="card-img rounded-circle img-circle avatar-user">
             		    	</div>
@@ -197,14 +197,14 @@
             		    		</div>
             		    		<div class="row">
             		    			<p class="info-recipe-user-post">15 công thức</p>
-            		    		</div>         		    						
+            		    		</div>
             		    	</div>
-                     		
+
                      		<div class="pull-right timestamp-user-post" style="margin-right: 10px">
                      			<span style="font-size: 12px">15/11/2017</span>
-                     			<span> <i class="fa fa-globe" aria-hidden="true"></i></span> 
+                     			<span> <i class="fa fa-globe" aria-hidden="true"></i></span>
                      		</div>
-                     	</div>           
+                     	</div>
 
                      	<div class="row user-post-title" style="margin-top: 20px">
                      		<div class="container">
@@ -212,12 +212,12 @@
                      				<p class="user-post-title-p1">Làm cơm luộc ngon nhất vịnh Bắc Bộ </p>
                      				<p class="user-post-title-p2"> độ khó : dễ</p>
                      			</div>
-                     		</div>                   		
+                     		</div>
                      	</div>
 
                      	<hr style="margin-top: 5px">
 
-                        <div class="user-post-content" >                     	
+                        <div class="user-post-content" >
                         	<div class="row user-post-text-content" style="margin: 0px">
                         		<div class="col-sm-12">
                         			<p>
@@ -255,9 +255,9 @@
                         	<div class="row user-post-img-content" style="margin: 0px">
                         		<div class="col-sm-12" style="padding-top: 20px;padding-bottom: 20px">
                         			<img src="vendor_customer/assets/images/banhbido.jpg" class="img-responsive">
-                        		</div>                       		
-                        	</div>	
-                        	
+                        		</div>
+                        	</div>
+
                         </div>
                         <div class="user-post-review-acts">
                         	<div class="row">
@@ -268,7 +268,7 @@
                         	 	 		        <span style="font-size: 15px">
                                                     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> thích
                                                 </span>
-	                        	 	 	    </a> 
+	                        	 	 	    </a>
 	                        	 	 	    <a class="user-post-button-comment btn">
 	                        	 	 		    <span  style="font-size: 15px">
                                                     <i class="fa fa-comments-o " aria-hidden="true"></i> bình luận
@@ -280,7 +280,7 @@
                                                 </span>
 	                        	 	 	    </a>
                         	 			</div>
-                        	 		
+
                         	 		</div>
                         	 	 	<div class="pull-right user-post-view">
                         	 	 		<span style="font-size: 14px">15 lượt xem <i class="fa fa-eye" aria-hidden="true"></i></span>
@@ -297,7 +297,7 @@
                                         <i class="fa fa-heart" aria-hidden="true"></i>
                                         Bạn và 5 người khác đã thích mục này
                                     </p>
-                        		</div>                       		
+                        		</div>
                         	</div>
                         </div>
 
@@ -305,12 +305,12 @@
 
                         <div class="user-post-comment-area">
                         	<div class="user-post-list-comment">
-                        		<div class="user-post-item-comment row" style="margin-bottom: 20px">   
+                        		<div class="user-post-item-comment row" style="margin-bottom: 20px">
                         		    <div class="col-sm-12">
                         		    	<div class="row">
 	                        		    	<div class="col-sm-1 user-post-item-comment-avatar">
 	                        				    <img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive user-post-item-avatar-img">
-	                        			    </div>                       		
+	                        			    </div>
 	                        			    <div class="col-sm-11 user-post-item-comment-content">
 	                        			    	<div class="row">
 	                        			    		<p class="user-post-item-comment-username">Phan Quan</p>
@@ -319,7 +319,7 @@
 	                        			    		<p>nho em nghen ngao ,nho em nhe nhang ,xin em ,thoi dung di qua xa </p>
 	                        			    	</div>
 	                        			    	<div class="row">
-			                        				<a style="font-size: 14px;font-weight: 400;" href="javascript:void(0)" class="reply">Trả lời</a>		                        			
+			                        				<a style="font-size: 14px;font-weight: 400;" href="javascript:void(0)" class="reply">Trả lời</a>
 			                        			</div>
 
                                                 <!-- list reply comment -->
@@ -366,9 +366,9 @@
                                                             <img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive user-post-item-avatar-img">
                                                         </div>
                                                         <div class="col-sm-11" style="margin-left: -10px">
-                                                            <span>                          
+                                                            <span>
                                                                 <textarea type="text" class="form-control user-post-reply-comment"></textarea>
-                                                            </span>                                                        
+                                                            </span>
                                                         </div>
                                                     </div>
 
@@ -378,17 +378,17 @@
                                                                 <a class="user-post-answer-reply-comment btn disabled">Trả lời</a>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
-                                               
+
 			                        			<!-- <div class="reply-comment">
 			                        				<p>hai con bo an co dong xanh</p>
 			                        			</div> -->
 	                        			    </div>
-	                        		    </div>                  		
-	                        			
-                        		    </div> 
-                        		    
+	                        		    </div>
+
+                        		    </div>
+
 
                         		</div>
                         	</div>
@@ -400,9 +400,9 @@
                         				<img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive user-post-item-avatar-img">
                         			</div>
                         			<div class="col-sm-11" style="margin-left: -10px">
-                        				<span>                 			
+                        				<span>
 			                                 <textarea type="text" class="form-control user-post-review-comment-area" placeholder="thảo luận của bạn ..."></textarea>
-			                            </span>                       				
+			                            </span>
                         		    </div>
                         		</div>
                         		<div class="row user-post-action-review-comment" style="display: none">
@@ -413,9 +413,9 @@
                         		</div>
                         	</div>
                         </div>
-                    </div>               
-                </div>		        
-			</div>			
+                    </div>
+                </div>
+			</div>
 		</div>
 
         <!-- top chef -->
@@ -450,9 +450,9 @@
 				    </div>
 				  </div>
 				</div>
-			
+
 			<!-- top chef -->
-			<div  id="top-chef">			
+			<div  id="top-chef">
 			    <div class="panel panel-default">
                     <div class="panel-body">
                     	<div class="top-chef-title">
@@ -461,7 +461,7 @@
                     				<p><span><i class="fa fa-users" aria-hidden="true"></i> </span> Top đầu bếp</p>
                     			</div>
                     		</div>
-                    		
+
                     	    <hr>
 
                     	</div>
@@ -479,12 +479,12 @@
 			            		    			</div>
 			            		    		    <div class="row">
 			            		    			    <p class="chef-info-recipe">15 công thức</p>
-			            		    		    </div>		            		    						
+			            		    		    </div>
 			            		    		</div>
                     					</div>
                     				</div>
                     			</div>
-                    		</div>      
+                    		</div>
 
                             <div class="row">
                                 <div class="col-sm-12">
@@ -499,7 +499,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <p class="chef-info-recipe">15 công thức</p>
-                                                </div>                                                      
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -519,20 +519,20 @@
                                                 </div>
                                                 <div class="row">
                                                     <p class="chef-info-recipe">15 công thức</p>
-                                                </div>                                                      
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-        		
-                    	</div>              	
+
+                    	</div>
                     </div>
                 </div>
 		    </div>
 		</div>
-	
+
 	</div>
 </section>
 
@@ -598,7 +598,7 @@
 <!-- Modal signin-->
       <div class="modal fade" id="modal-signin" role="dialog">
         <div class="modal-dialog">
-        
+
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header" style="padding:35px 50px;">
@@ -627,13 +627,13 @@
               <p>Forgot <a href="#">Password?</a></p>
             </div>
           </div>
-          
+
         </div>
       </div>
 <!-- Modal signup-->
       <div class="modal fade" id="modal-signup" role="dialog">
         <div class="modal-dialog">
-        
+
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header" style="padding:35px 50px;">
@@ -665,13 +665,13 @@
               </form>
             </div>
           </div>
-          
+
         </div>
       </div>
 <!-- Modal recipient-->
       <div class="modal fade" id="modal-recipient" role="dialog">
         <div class="modal-dialog" style="min-width: 1000px">
-        
+
           <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header" style="padding:35px 50px;">
@@ -696,7 +696,7 @@
               </form>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -742,53 +742,53 @@
         });
 
 	    $(".reply").click(function(){
-	    	$(".user-post-reply-area").toggle();	
+	    	$(".user-post-reply-area").toggle();
 	    	var text = $(".user-post-reply-comment").val();
 	    	if(text.length > 0) {
 	    		$(".user-post-answer-reply-comment").removeClass("disabled");
 	    	} else {
 	    		$(".user-post-answer-reply-comment").addClass("disabled");
-	    	}            
+	    	}
 	    });
-        
-        $(".user-post-review-comment-area").keyup(function(){	
+
+        $(".user-post-review-comment-area").keyup(function(){
             var text = $(".user-post-review-comment-area").val();
             if(text.length > 0) {
-            	$(".user-post-action-review-comment").show();   
+            	$(".user-post-action-review-comment").show();
             } else {
             	$(".user-post-action-review-comment").hide();
             }
-                    
+
 	    });
 
-	    $(".user-post-review-comment-area").click(function(){	
+	    $(".user-post-review-comment-area").click(function(){
             var text = $(".user-post-review-comment-area").val();
             if(text.length > 0) {
-            	$(".user-post-action-review-comment").show();   
+            	$(".user-post-action-review-comment").show();
             } else {
             	$(".user-post-action-review-comment").hide();
             }
-                    
+
 	    });
 
-        $(".textarea-post-post").keyup(function(){	
+        $(".textarea-post-post").keyup(function(){
             var text = $(".textarea-post-post").val();
             if(text.length > 0) {
-            	$(".action-post-post").show();   
+            	$(".action-post-post").show();
             } else {
             	$(".action-post-post").hide();
             }
-                    
+
 	    });
 
-	    $(".textarea-post-post").click(function(){	
+	    $(".textarea-post-post").click(function(){
             var text = $(".textarea-post-post").val();
             if(text.length > 0) {
-            	$(".action-post-post").show();   
+            	$(".action-post-post").show();
             } else {
             	$(".action-post-post").hide();
             }
-                    
+
 	    });
 
 	    $(".user-post-delete-reply-comment").click(function(){
@@ -799,7 +799,7 @@
 	    $(".user-post-delete-review-comment").click(function(){
             $(".user-post-action-review-comment").hide();
 	    });
-        
+
         $(".delete-post-post").click(function(){
             $(".action-post-post").hide();
 	    });
@@ -810,7 +810,7 @@
 	    		$(".user-post-answer-reply-comment").removeClass("disabled");
 	    	} else {
 	    		$(".user-post-answer-reply-comment").addClass("disabled");
-	    	}     
+	    	}
 	    });
 
 	    $(".user-post-button-comment").click(function(){
@@ -820,7 +820,7 @@
         $(".signin").click(function(){
             $("#modal-signin").modal();
         });
-       
+
 	    $(".signup").click(function(){
 	        $("#modal-signup").modal();
 	    });
@@ -851,7 +851,7 @@
 
 	});
 
-	
+
 
 </script>
 <script type="text/javascript">
@@ -885,57 +885,57 @@
 <script>
     var selDiv = "";
     var storedFiles = [];
-    
+
     $(document).ready(function() {
         $("#files").on("change", handleFileSelect);
-        
-        selDiv = $("#selectedFiles"); 
+
+        selDiv = $("#selectedFiles");
         $("#myForm").on("submit", handleForm);
-        
+
         $("body").on("click", ".selFile", removeFile);
     });
-        
+
     function handleFileSelect(e) {
         var files = e.target.files;
         var filesArr = Array.prototype.slice.call(files);
-        filesArr.forEach(function(f) {          
+        filesArr.forEach(function(f) {
 
             if(!f.type.match("image.*")) {
                 return;
             }
             storedFiles.push(f);
-            
+
             var reader = new FileReader();
             reader.onload = function (e) {
                 var html = "<div class='col-sm-3 sub-img-post-post'><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selFile img-responsive' title='Click to remove' style='width:100%;height:100px'>" + "<br clear=\"left\"/></div>";
                 selDiv.append(html);
             }
-            reader.readAsDataURL(f); 
+            reader.readAsDataURL(f);
         });
-        
+
     }
-        
+
     function handleForm(e) {
         e.preventDefault();
         var data = new FormData();
-        
+
         for(var i=0, len=storedFiles.length; i<len; i++) {
-            data.append('files', storedFiles[i]); 
+            data.append('files', storedFiles[i]);
         }
-        
+
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'handler.cfm', true);
-        
+
         xhr.onload = function(e) {
             if(this.status == 200) {
-                console.log(e.currentTarget.responseText);  
+                console.log(e.currentTarget.responseText);
                 alert(e.currentTarget.responseText + ' items uploaded.');
             }
         }
-        
+
         xhr.send(data);
     }
-        
+
     function removeFile(e) {
         var file = $(this).data("file");
         for(var i=0;i<storedFiles.length;i++) {
@@ -950,6 +950,139 @@
 <script type="text/javascript">
 	autosize(document.querySelectorAll('textarea'));
 </script>
+
+
+<!-- socket -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:8000');
+    $('.form-post-post').submit(function(){
+        socket.emit('user posts post',$('.textarea-post-post').val());
+          $('.textarea-post-post').val('');
+          return false;
+    });
+
+    // socket.on('user posts post',function(user_posts_post){
+    //        $('').html();
+    //         <div class="panel panel-default user-post">
+    //                 <div class="panel-body">
+    //                     <div class="row user-post-header">
+    //                         <div class="col-sm-2">
+    //                             <img src="vendor_customer/assets/images/na1.jpg" class="card-img rounded-circle img-circle avatar-user">
+    //                         </div>
+
+    //                         <div class="col-sm-5" style="margin-left: -40px ">
+    //                             <div class="row">
+    //                                 <p class="name-user-post" >Duy Phat Hoan</p>
+    //                             </div>
+    //                             <div class="row">
+    //                                 <p class="info-recipe-user-post">15 công thức</p>
+    //                             </div>
+    //                         </div>
+
+    //                         <div class="pull-right timestamp-user-post" style="margin-right: 10px">
+    //                             <span style="font-size: 12px">15/11/2017</span>
+    //                             <span> <i class="fa fa-globe" aria-hidden="true"></i></span>
+    //                         </div>
+    //                     </div>
+
+    //                     <div class="row user-post-title" style="margin-top: 20px">
+    //                         <div class="container">
+    //                             <div class="col-sm-12">
+    //                                 <p class="user-post-title-p1">Làm cơm luộc ngon nhất vịnh Bắc Bộ </p>
+    //                                 <p class="user-post-title-p2"> độ khó : dễ</p>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+
+    //                     <hr style="margin-top: 5px">
+
+    //                     <div class="user-post-content" >
+    //                         <div class="row user-post-text-content" style="margin: 0px">
+    //                             <div class="col-sm-12">
+    //                                 <p>
+
+    //                                 </p>
+    //                             </div>
+    //                         </div>
+    //                         <div class="row user-post-img-content" style="margin: 0px">
+    //                             <div class="col-sm-12" style="padding-top: 20px;padding-bottom: 20px">
+    //                                 <img src="vendor_customer/assets/images/banhbido.jpg" class="img-responsive">
+    //                             </div>
+    //                         </div>
+
+    //                     </div>
+    //                     <div class="user-post-review-acts">
+    //                         <div class="row">
+    //                             <div class="col-sm-12">
+    //                                 <div class="pull-left">
+    //                                     <div style="padding-left: 20px">
+    //                                         <a class="user-post-button-like btn">
+    //                                             <span style="font-size: 15px">
+    //                                                 <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> thích
+    //                                             </span>
+    //                                         </a>
+    //                                         <a class="user-post-button-comment btn">
+    //                                             <span  style="font-size: 15px">
+    //                                                 <i class="fa fa-comments-o " aria-hidden="true"></i> bình luận
+    //                                             </span>
+    //                                         </a>
+    //                                         <a class="user-post-button-share btn">
+    //                                             <span  style="font-size: 15px">
+    //                                                 <i class="fa fa-share-square-o" aria-hidden="true"></i> chia sẻ
+    //                                             </span>
+    //                                         </a>
+    //                                     </div>
+
+    //                                 </div>
+    //                                 <div class="pull-right user-post-view">
+    //                                     <span style="font-size: 14px">15 lượt xem <i class="fa fa-eye" aria-hidden="true"></i></span>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="panel-footer">
+    //                     <div class="user-post-react">
+    //                         <div class="row">
+    //                             <div class="col-sm-12" >
+
+    //                             </div>
+    //                         </div>
+    //                     </div>
+
+    //                     <hr style="margin: 10px">
+
+    //                     <div class="user-post-comment-area">
+    //                         <div class="user-post-list-comment">
+
+    //                         </div>
+
+    //                         <!-- review comment -->
+    //                         <div class="user-post-review-comment-container" >
+    //                             <div class="row">
+    //                                 <div class="col-sm-1 img-ava">
+    //                                     <img src="vendor_customer/assets/images/na1.jpg" class="img-circle img-responsive user-post-item-avatar-img">
+    //                                 </div>
+    //                                 <div class="col-sm-11" style="margin-left: -10px">
+    //                                     <span>
+    //                                          <textarea type="text" class="form-control user-post-review-comment-area" placeholder="thảo luận của bạn ..."></textarea>
+    //                                     </span>
+    //                                 </div>
+    //                             </div>
+    //                             <div class="row user-post-action-review-comment" style="display: none">
+    //                                 <div class="pull-right" style="padding-right: 30px;margin-top: -10px" >
+    //                                     <a class="btn btn-default user-post-delete-review-comment">Hủy</a>
+    //                                     <a class="btn btn-default user-post-answer-review-comment">Trả lời</a>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    // });
+</script>
+
 </body>
 </html>
 

@@ -38,24 +38,25 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Đăng Nhập Trang Admin</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="admin/dangnhap" method="POST">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Tên Đăn Nhập" name="tentaikhoan" type="text" required="" title=":Tên Đăng Nhập Đích Thực Phải Là Tên Đăng Nhập Của Bạn" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Mật Khẩu" name="password" type="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=":  Mật khẩu phải chứa ít nhất một ký tự thường,một ký tự hoa,một chứ số và mật khẩu phải dài hơn 8 ký tự" required="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                        <input name="remember" type="checkbox" value="Remember Me">Ghi Nhớ
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Đăng Nhập</button>
                             </fieldset>
                         </form>
                     </div>

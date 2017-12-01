@@ -26,7 +26,7 @@ class CongDungController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $anhdaidien=$filename;
+                $anhdaidien='uploads/congdung/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }
@@ -50,7 +50,7 @@ class CongDungController extends Controller
             $extension=$file->getClientOriginalExtension();
             $filename= $req->file('anh')->getClientOriginalName();
             $file->move($destinationPath,$filename);
-            $congdung->anh=$filename;
+            $congdung->anh='uploads/congdung/'.$filename;
         } else {
             dd("có lỗi xảy ra");
         }

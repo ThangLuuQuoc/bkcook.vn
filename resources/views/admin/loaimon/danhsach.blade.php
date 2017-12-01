@@ -18,13 +18,7 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     @if(isset($loaimon))
-<<<<<<< HEAD
-                    
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="table-layout:fixed;">
-=======
-
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
->>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
                         <thead>
                             <tr align="center">
                                 <th style="overflow:hidden;" title="Tên">Tên</th>
@@ -32,7 +26,6 @@
                                 <th style="overflow:hidden;" title="Thuộc thể loại">Thuộc thể loại</th>
                                  <th style="overflow:hidden;" title="ảnh">Ảnh</th>
                                  <th style="overflow:hidden;" title="Ngày tạo">ngày tạo</th>
-                                <!-- <th>Status</th> -->
                                 <th style="overflow:hidden;" title="Xoá loại món">Xoá</th>
                                 <th style="overflow:hidden;" title="Sửa loại món">Sửa</th>
                             </tr>
@@ -40,24 +33,16 @@
                         <tbody>
                             @foreach($loaimon as $lm)
                             <tr class="even gradeC" align="center">
-<<<<<<< HEAD
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$lm->ten}}">{{$lm->ten}}</td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$lm->tenkhongdau}}">{{$lm->tenkhongdau}}</td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">@foreach($theloai as $tl) 
                                         @if($tl->id == $lm->id_theloai) 
                                             {{$tl->ten}} 
-=======
-                                <td>{{$lm->ten}}</td>
-                                <td>{{$lm->tenkhongdau}}</td>
-                                <td>@foreach($theloai as $tl)
-                                        @if($tl->id == $lm->id_theloai)
-                                            {{$tl->ten}}
->>>>>>> 2832ba4ebe116adb1e4b07c379a83b491269de71
                                             @break
                                         @endif
                                     @endforeach
                                 </td>
-                                <td><img src="uploads/loaimon/{{$lm->anh}}" alt="" width="50px" height="50px"></td>
+                                <td><img src="{{$lm->anh}}" alt="" width="50px" height="50px"></td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$lm->created_at}}">{{$lm->created_at}}</td>
                                 <!-- <td>Ẩn</td> -->
                                 <td class="center text-info"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaLoaiMon',$lm->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Xoá</a></td>

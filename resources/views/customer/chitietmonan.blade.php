@@ -31,7 +31,10 @@
 					<img id="anhtacgia" src="vendor_customer/assets/images/thuyduyen.jpg" alt="Nguyen Thuy Duyen" class="img-circle">
 					<div id='thongtintacgia'>
 						<p id='tentacgia'><a href="#">Thuy Duyen</a></p>
-						<p><b>20</b> công thức</p>
+						<p>
+							<b>20</b> công thức
+							<b>15</b> theo dõi
+						</p>
 					</div>
 				</div>
 				<div id="thongso">
@@ -82,24 +85,24 @@
 				<h5>Bài viết liên quan</h5>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha4.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở tái, món ăn giàu dinh dưỡng</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Phở tái, món ăn giàu dinh dưỡng</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha7.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở nạm gầu, khó nhưng rất dễ</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Phở nạm gầu, khó nhưng rất dễ</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/buoc2.2.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Giai thoại phở Hà thành</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Giai thoại phở Hà thành</a></p>
 				</div>
 				<div id="baiviet">
 					<img src="vendor_customer/assets/images/ha11.jpg">
-					<p><a href="#" data-toggle="modal" data-target="#myModal">Phở Lý Quốc Sư - Dư âm những người Tràng An cuối cùng</a></p>
+					<p><a href="#" data-toggle="modal" data-target="#yourModal">Dư âm những người Tràng An cuối cùng</a></p>
 				</div>
 
 			</div>
 
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -137,9 +140,6 @@
 			                </li>
 			                <li role="presentation">
 			                	<a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a>
-			                </li>
-			                <li role="presentation">
-			                	<a href="#danhgia" aria-controls="danhgia" role="tab" data-toggle="tab">Đánh giá</a>
 			                </li>
 			            </ul>
 
@@ -197,8 +197,59 @@
 	                        	<h4>Video món ăn</h4><hr>
 	                        	<iframe width="560" height="315" src="https://www.youtube.com/embed/O9hTxcTbKOo" frameborder="0" allowfullscreen></iframe>
 	                        </div>
-	                        <div role="tabpanel" class="tab-pane" id="danhgia">Đánh giá</div>
-	                    </div>
+	                    </div>	<!--End tab panel -->
+					
+					<!-- Comment -->
+					<div class="detailBox container">
+					    <div class="titleBox">
+					      <label>Bình luận</label>
+					        <button type="button" class="close" aria-hidden="true">&times;</button>
+					    </div>
+					    <div class="commentBox">
+					        
+					        <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					    </div>
+					    <div class="actionBox">
+					        <ul class="commentList">
+					            <li>
+					                <div class="commenterImage">
+					                  <img src="http://via.placeholder.com/50x50" />
+					                </div>
+					                <div class="commentText">
+					                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+					                </div>
+					            </li>
+					            <li>
+					                <div class="commenterImage">
+					                  <img src="http://placekitten.com/45/45" />
+					                </div>
+					                <div class="commentText">
+					                    <p class="">Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+					                </div>
+					            </li>
+					            <li>
+					                <div class="commenterImage">
+					                  <img src="http://via.placeholder.com/50x50" />
+					                </div>
+					                <div class="commentText">
+					                    <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+					                </div>
+					            </li>
+					        </ul>
+					        <form class="form-inline" role="form">
+					            <div class="form-group">
+					                <input id="input-comment" class="form-control" type="text" placeholder="Your comments" />
+					            </div>
+					            <div class="form-group">
+					                <button type="submit" class="btn btn-sm btn-primary" id="btn-comment">Add</button>
+					            </div>
+					        </form>
+					    </div>
+					</div>	<!-- End comment -->
+
 					</div>
                 </div>
 			</div>

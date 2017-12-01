@@ -26,7 +26,7 @@ class VungMienController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $anhdaidien=$filename;
+                $anhdaidien='uploads/vungmien/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }
@@ -52,7 +52,7 @@ class VungMienController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $vungmien->anh=$filename;
+                $vungmien->anh='uploads/vungmien/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }

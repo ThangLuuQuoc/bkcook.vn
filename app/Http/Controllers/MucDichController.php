@@ -26,7 +26,7 @@ class MucDichController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $anhdaidien=$filename;
+                $anhdaidien='uploads/mucdich/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }
@@ -50,7 +50,7 @@ class MucDichController extends Controller
                 $extension=$file->getClientOriginalExtension();
                 $filename= $req->file('anh')->getClientOriginalName();
                 $file->move($destinationPath,$filename);
-                $mucdich->anh=$filename;
+                $mucdich->anh='uploads/mucdich/'.$filename;
             } else {
                 dd("có lỗi xảy ra");
             }

@@ -13,84 +13,170 @@ Route::get('/', function () {
 	return view('customer.trangchu');
 });
 
-Route::group(['prefix' => 'user'], function () {
-	Route::get('danhsach', 'UserController@getDanhSach');
-	Route::get('them', 'UserController@getThem');
-	Route::post('them', 'UserController@postThem');
-	Route::get('sua/{id}', 'UserController@getSua');
-	Route::post('sua/{id}', 'UserController@postSua');
-	Route::get('xoa/{id}', 'UserController@getXoa');
-});
-Route::group(['prefix' => 'nhahang'], function () {
-	Route::get('danhsach', 'NhaHangController@getDanhSach');
-	Route::get('them', 'NhaHangController@getThem');
-	Route::post('them', 'NhaHangController@postThem');
-	Route::get('xoa', 'NhaHangController@getXoa');
-	Route::get('themmenu', 'NhaHangController@getThemMenu');
-	Route::post('themmenu', 'NhaHangController@postThemMenu');
+Route::get('admin/dangnhap', 'UserController@getAdminLogin');
+Route::post('admin/dangnhap', 'UserController@postAdminLogin');
+Route::get('admin/dangxuat', 'UserController@getAdminLogout');
 
-});
-
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
+//Giới thiệu trang admin
+	Route::get('info-page-admin', function () {
+		return view('admin.info');
+	});
+//Phần dành cho admin thêm tài khoản thành viên
+	Route::group(['prefix' => 'user'], function () {
+		Route::get('danhsach', 'UserController@getDanhSach');
+		Route::get('them', 'UserController@getThem');
+		Route::post('them', 'UserController@postThem');
+		Route::get('sua/{id}', 'UserController@getSua');
+		Route::post('sua/{id}', 'UserController@postSua');
+		Route::get('xoa/{id}', 'UserController@getXoa');
+	});
+//Phần dành cho admin thêm tài khoản nhà hàng liên kết
+	Route::group(['prefix' => 'nhahang'], function () {
+		Route::get('danhsach', 'NhaHangController@getDanhSachTaiKhoanNH');
+		Route::get('them', 'NhaHangController@getThemTaiKhoanNH');
+		Route::post('them', 'NhaHangController@postThemTaiKhoanNH');
+		Route::get('xoa', 'NhaHangController@getXoaTaiKhoanNH');
+	});
+//Phần dành cho thống kê
+	Route::group(['prefix' => 'thongke'], function () {
+		Route::get('lichsu', 'ThongKeController@getLichSu');
+		Route::get('thuchientk', 'ThongKeController@getThucHienTK');
+	});
 //admin -> theloai
-Route::group(['prefix' => 'theloai'],function(){
-	Route::get('danhsach',['as'=>'danhSachTheLoai','uses'=>'TheLoaiController@getDanhSach']);
-	Route::get('sua/{id}',['as'=>'suaTheLoai','uses'=>'TheLoaiController@SuaTheLoai']);
-	Route::post('sua/{id}',['as'=>'suaTheLoai','uses'=>'TheLoaiController@postSuaTheLoai']);
-	Route::get('them',['as'=>'themTheLoai',function(){
+	Route::group(['prefix' => 'theloai'], function () {
+		Route::get('danhsach', ['as' => 'danhSachTheLoai', 'uses' => 'TheLoaiController@getDanhSach']);
+		Route::get('sua/{id}', ['as' => 'suaTheLoai', 'uses' => 'TheLoaiController@SuaTheLoai']);
+		Route::post('sua/{id}', ['as' => 'suaTheLoai', 'uses' => 'TheLoaiController@postSuaTheLoai']);
+		Route::get('them', ['as' => 'themTheLoai', function () {
 			return view('admin.theloai.them');
 		}]);
-	Route::post('them',['as'=>'themTheLoai','uses'=>'TheLoaiController@postThemTheLoai']);
-	Route::get('xoa/{id}',['as'=>'xoaTheLoai','uses'=>'TheLoaiController@xoaTheLoai']);
-});
+		Route::post('them', ['as' => 'themTheLoai', 'uses' => 'TheLoaiController@postThemTheLoai']);
+		Route::get('xoa/{id}', ['as' => 'xoaTheLoai', 'uses' => 'TheLoaiController@xoaTheLoai']);
+	});
 
 //admin -> loaimon
-Route::group(['prefix' => 'loaimon'],function(){
-	Route::get('danhsach',['as'=>'danhSachLoaiMon','uses'=>'LoaiMonController@getDanhSach']);
-	Route::get('sua/{id}',['as'=>'suaLoaiMon','uses'=>'LoaiMonController@SuaLoaiMon']);
-	Route::post('sua/{id}',['as'=>'suaLoaiMon','uses'=>'LoaiMonController@postSuaLoaiMon']);
-	Route::get('them',['as'=>'themLoaiMon','uses'=>'LoaiMonController@getThemLoaiMon']);
-	Route::post('them',['as'=>'themLoaiMon','uses'=>'LoaiMonController@postThemLoaiMon']);
-	Route::get('xoa/{id}',['as'=>'xoaLoaiMon','uses'=>'LoaiMonController@xoaLoaiMon']);
-});
+	Route::group(['prefix' => 'loaimon'], function () {
+		Route::get('danhsach', ['as' => 'danhSachLoaiMon', 'uses' => 'LoaiMonController@getDanhSach']);
+		Route::get('sua/{id}', ['as' => 'suaLoaiMon', 'uses' => 'LoaiMonController@SuaLoaiMon']);
+		Route::post('sua/{id}', ['as' => 'suaLoaiMon', 'uses' => 'LoaiMonController@postSuaLoaiMon']);
+		Route::get('them', ['as' => 'themLoaiMon', 'uses' => 'LoaiMonController@getThemLoaiMon']);
+		Route::post('them', ['as' => 'themLoaiMon', 'uses' => 'LoaiMonController@postThemLoaiMon']);
+		Route::get('xoa/{id}', ['as' => 'xoaLoaiMon', 'uses' => 'LoaiMonController@xoaLoaiMon']);
+	});
 //admin -> congdung
-Route::group(['prefix' => 'congdung'],function(){
-	Route::get('danhsach',['as'=>'danhSachCongDung','uses'=>'CongDungController@getDanhSach']);
-	Route::get('sua/{id}',['as'=>'suaCongDung','uses'=>'CongDungController@suaCongDung']);
-	Route::post('sua/{id}',['as'=>'suaCongDung','uses'=>'CongDungController@postSuaCongDung']);
-	Route::get('them',['as'=>'themCongDung',function(){
+	Route::group(['prefix' => 'congdung'], function () {
+		Route::get('danhsach', ['as' => 'danhSachCongDung', 'uses' => 'CongDungController@getDanhSach']);
+		Route::get('sua/{id}', ['as' => 'suaCongDung', 'uses' => 'CongDungController@suaCongDung']);
+		Route::post('sua/{id}', ['as' => 'suaCongDung', 'uses' => 'CongDungController@postSuaCongDung']);
+		Route::get('them', ['as' => 'themCongDung', function () {
 			return view('admin.congdung.them');
 		}]);
-	Route::post('them',['as'=>'themCongDung','uses'=>'CongDungController@postThemCongDung']);
-	Route::get('xoa/{id}',['as'=>'xoaCongDung','uses'=>'CongDungController@xoaCongDung']);
-});
+		Route::post('them', ['as' => 'themCongDung', 'uses' => 'CongDungController@postThemCongDung']);
+		Route::get('xoa/{id}', ['as' => 'xoaCongDung', 'uses' => 'CongDungController@xoaCongDung']);
+	});
 // admin muc dich
-Route::group(['prefix' => 'mucdich'],function(){
-	Route::get('danhsach', ['as'=>'danhSachMucDich','uses'=>'MucDichController@getDanhSach']);
-	Route::get('sua/{id}',['as'=>'suaMucDich','uses'=>'MucDichController@SuaMucDich']);
-	Route::post('sua/{id}',['as'=>'suaMucDich',	'uses'=>'MucDichController@postSuaMucDich']);
-	Route::get('them',['as'=>'themMucDich', function(){
+	Route::group(['prefix' => 'mucdich'], function () {
+		Route::get('danhsach', ['as' => 'danhSachMucDich', 'uses' => 'MucDichController@getDanhSach']);
+		Route::get('sua/{id}', ['as' => 'suaMucDich', 'uses' => 'MucDichController@SuaMucDich']);
+		Route::post('sua/{id}', ['as' => 'suaMucDich', 'uses' => 'MucDichController@postSuaMucDich']);
+		Route::get('them', ['as' => 'themMucDich', function () {
 			return view('admin.mucdich.them');
 		}]);
-	Route::post('them',['as'=>'themMucDich','uses'=>'MucDichController@postThemMucDich']);
-	Route::get('xoa/{id}',['as'=>'xoaMucDich','uses'=>'MucDichController@xoaMucDich']);
-});
+		Route::post('them', ['as' => 'themMucDich', 'uses' => 'MucDichController@postThemMucDich']);
+		Route::get('xoa/{id}', ['as' => 'xoaMucDich', 'uses' => 'MucDichController@xoaMucDich']);
+	});
 //quan lý vung mien
-Route::group(['prefix' => 'vungmien'],function(){
-	Route::get('danhsach',['as'=>'danhSachVungMien','uses'=>'VungMienController@getDanhSach']);
-	Route::get('sua/{id}',['as'=>'suaVungMien','uses'=>'VungMienController@SuaVungMien']);
-	Route::post('sua/{id}',['as'=>'suaVungMien','uses'=>'VungMienController@postSuaVungMien']);
-	Route::get('them',['as'=>'themVungMien',function(){
+	Route::group(['prefix' => 'vungmien'], function () {
+		Route::get('danhsach', ['as' => 'danhSachVungMien', 'uses' => 'VungMienController@getDanhSach']);
+		Route::get('sua/{id}', ['as' => 'suaVungMien', 'uses' => 'VungMienController@SuaVungMien']);
+		Route::post('sua/{id}', ['as' => 'suaVungMien', 'uses' => 'VungMienController@postSuaVungMien']);
+		Route::get('them', ['as' => 'themVungMien', function () {
 			return view('admin.vungmien.them');
 		}]);
-	Route::post('them',['as'=>'themVungMien','uses'=>'VungMienController@postThemVungMien']);
-	Route::get('xoa/{id}',['as'=>'xoaVungMien','uses'=>'VungMienController@xoaVungMien']);
+		Route::post('them', ['as' => 'themVungMien', 'uses' => 'VungMienController@postThemVungMien']);
+		Route::get('xoa/{id}', ['as' => 'xoaVungMien', 'uses' => 'VungMienController@xoaVungMien']);
+	});
+
+// quản lý món ăn và các thực thể liên quan
+	Route::group(['prefix' => 'monan'], function () {
+		Route::get('danhsach', [
+			'as' => 'danhSachMonAn',
+			'uses' => 'MonAnController@getDanhSachMonAn',
+		]);
+		Route::get('them', [
+			'as' => 'themMonAn',
+			'uses' => 'MonAnController@getViewThemMonAn',
+		]);
+		Route::post('them', [
+			'as' => 'themMonAn',
+			'uses' => 'MonAnController@themMonAn',
+		]);
+		Route::get('sua/{id}', [
+			'as' => 'suaMonAn',
+			'uses' => 'MonAnController@getViewSuaMonAn',
+		]);
+		Route::post('sua/{id}', [
+			'as' => 'suaMonAn',
+			'uses' => 'MonAnController@suaMonAn',
+		]);
+		Route::get('xoa/{id}', [
+			'as' => 'xoaMonAn',
+			'uses' => 'MonAnController@xoaMonAn',
+		]);
+		Route::get('thembuocnau/{id}', [
+			'as' => 'themBuocNau',
+			'uses' => 'CacBuocNauController@getViewThemBuocNau',
+		]);
+		Route::post('thembuocnau/{id}', [
+			'as' => 'themBuocNau',
+			'uses' => 'CacBuocNauController@themBuocNau',
+		]);
+		Route::get('suabuocnau/{id_monan}/{id_buocnau}', [
+			'as' => 'suaBuocNau',
+			'uses' => 'CacBuocNauController@getViewSuaBuocNau',
+		]);
+		Route::post('suabuocnau/{id_monan}/{id_buocnau}', [
+			'as' => 'suaBuocNau',
+			'uses' => 'CacBuocNauController@suaBuocNau',
+		]);
+		Route::get('xoabuocnau/{id_monan}/{id_buocnau}', [
+			'as' => 'xoaBuocNau',
+			'uses' => 'CacBuocNauController@xoaBuocNau',
+		]);
+		Route::get('themvideo/{id}', [
+			'as' => 'themVideo',
+			'uses' => 'VideoController@getViewThemVideo',
+		]);
+		Route::post('themvideo/{id}', [
+			'as' => 'themVideo',
+			'uses' => 'VideoController@themVideo',
+		]);
+		Route::get('suavideo/{id_monan}/{id_video}', [
+			'as' => 'suaVideo',
+			'uses' => 'VideoController@getViewSuaVideo',
+		]);
+		Route::post('suavideo/{id_monan}/{id_video}', [
+			'as' => 'suaVideo',
+			'uses' => 'VideoController@suaVideo',
+		]);
+		Route::get('xoavideo/{id_monan}/{id_video}', [
+			'as' => 'xoaVideo',
+			'uses' => 'VideoController@xoaVideo',
+		]);
+	});
 });
 
-//ad Nha hang
-Route::get('admin/nhahang/danhsach', [
-	'as'=>'danhSachNhaHang',
-	'uses'=>'NhaHangController@getDanhSach']
-);
+//Phần dành cho nhà hàng liên kết
+Route::group(['prefix' => 'nhahang'], function () {
+	Route::get('thongtin', 'NhaHangController@getThongTin');
+	Route::get('suathongtin', 'NhaHangController@getSua');
+	Route::get('themMenu', 'NhaHangController@getThemMenu');
+	Route::post('themMenu', 'NhaHangController@postThemMenu');
+});
+//Phần dành cho tất cả mọi người
+
+//Phần dành cho thành viên có tài khoản
 
 //Customer
 Route::get('trangchu', function () {
@@ -138,75 +224,36 @@ Route::get('login', function () {
 Route::get('singup', function () {
 	return view('customer.singup');
 });
-Route::get('dangbai', ['as'=>'dangBai','uses'=>'DangBaiController@loadDangBai']);
-//test Model
-// Route::get('mon an', function () {
-// 	$monan = MonAn::all()->toArray();
-// 	if ($monan == null) {
-// 		echo "Chua co mon an nao trong DataBase";
-// 	}
-// 	echo "<br>";
-// 	print_r($monan);
-// 	echo "<br />";
-// });
+Route::get('baiviet', function () {
+	return view('customer.baiviet');
+});
 
-// Route mon an
-Route::get('admin/monan/danhsach', [
-	'as' => 'danhSachMonAn',
-	'uses' => 'MonAnController@getDanhSachMonAn'
-]);
+//Trang chi tiết
+Route::get('chitiettheloai', function () {
+	return view('customer.chitiettheloai');
+});
 
-Route::get('admin/monan/them', [
-	'as' => 'themMonAn',
-	'uses' => 'MonAnController@getViewThemMonAn'
-]);
+Route::get('chitietloaimon', function () {
+	return view('customer.chitietloaimon');
+});
 
-Route::post('admin/monan/them', [
-	'as' => 'themMonAn',
-	'uses' => 'MonAnController@themMonAn'
-]);
+Route::get('chitietmucdich', function () {
+	return view('customer.chitietmucdich');
+});
 
-Route::get('admin/monan/sua/{id}', [
-	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@getViewSuaMonAn'
-]);
+Route::get('chitietnhahang', function () {
+	return view('customer.chitietnhahang');
+});
 
-Route::post('admin/monan/sua/{id}', [
-	'as' => 'suaMonAn',
-	'uses' => 'MonAnController@suaMonAn'
-]);
+Route::get('chitietthanhvien', function () {
+	return view('customer.chitietthanhvien');
+});
 
-Route::get('admin/monan/xoa/{id}', [
-	'as' => 'xoaMonAn',
-	'uses' => 'MonAnController@xoaMonAn'
-]);
+Route::get('chitietvungmien', function () {
+	return view('customer.chitietvungmien');
+});
+Route::get('dangbai', ['as' => 'dangBai', 'uses' => 'DangBaiController@loadDangBai']);
+Route::get('findLoaiMon', 'DangBaiController@findLoaiMon');
 
-// Route buoc nau
-Route::get('admin/monan/thembuocnau/{id}', [
-	'as' => 'themBuocNau',
-	'uses' => 'CacBuocNauController@getViewThemBuocNau'
-]);
-
-Route::post('admin/monan/thembuocnau/{id}', [
-	'as' => 'themBuocNau',
-	'uses' => 'CacBuocNauController@themBuocNau'
-]);
-
-Route::get('admin/monan/suabuocnau/{id_monan}/{id_buocnau}', [
-	'as' => 'suaBuocNau',
-	'uses' => 'CacBuocNauController@getViewSuaBuocNau'
-]);
-
-Route::post('admin/monan/suabuocnau/{id_monan}/{id_buocnau}', [
-	'as' => 'suaBuocNau',
-	'uses' => 'CacBuocNauController@suaBuocNau'
-]);
-
-Route::get('admin/monan/xoabuocnau/{id_monan}/{id_buocnau}', [
-	'as' => 'xoaBuocNau',
-	'uses' => 'CacBuocNauController@xoaBuocNau'
-]);
-
-//ajax 
-
-Route::get('findLoaiMon','DangBaiController@findLoaiMon');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

@@ -14,8 +14,6 @@
                 <div class="alert alert-success"><strong>{{Session::get('themmonanthanhcong')}}</strong></div>
                 @elseif(Session::has('suamonanthanhcong'))
                 <div class="alert alert-success"><strong>{{Session::get('suamonanthanhcong')}}</strong></div>
-                @elseif(Session::has('thembuocnauthanhcong'))
-                <div class="alert alert-success"><strong>{{Session::get('thembuocnauthanhcong')}}</strong></div>
                 @endif
             </div>
             <!-- /.col-lg-12 -->
@@ -41,7 +39,8 @@
                         <th style="overflow:hidden;" title="Ngày cập nhật">Ngày cập nhật</th>
                         <th style="overflow:hidden;" title="Xóa">Xóa</th>
                         <th style="overflow:hidden;" title="Sửa">Sửa</th>
-                        <th style="overflow:hidden;" title="Thêm bước nấu">Thêm bước nấu</th>
+                        <th style="overflow:hidden;" title="Thêm bước nấu">Các bước nấu</th>
+                        <th style="overflow:hidden;" title="Thêm bước nấu">Video</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,9 +63,10 @@
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> id_vungmien}}">{{$ma -> id_vungmien}}</td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> created_at}}">{{$ma -> created_at}}</td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$ma -> updated_at}}">{{$ma -> updated_at}}</td>
-                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaMonAn', $ma -> id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')""> Xóa</a></td>
+                        <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaMonAn', $ma -> id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"> Xóa</a></td>
                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('suaMonAn', $ma -> id)}}">Sửa</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('themBuocNau', $ma -> id)}}">Thêm bước nấu</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('themBuocNau', $ma -> id)}}">Các bước nấu</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('themVideo', $ma -> id)}}">Video</a></td>
                     </tr>
                     @endforeach
                 </tbody>

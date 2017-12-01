@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller {
 
@@ -13,22 +13,23 @@ class UserController extends Controller {
 		return view('admin.taikhoan.danhsach', ['users' => $users]);
 	}
 	public function getThem() {
+
 		return view('admin.taikhoan.them');
 	}
 	public function postThem(Request $request) {
 
-		$this->validate($request, [
-			'email' => 'required|email|unique:users,email',
-			'tentaikhoan' => 'required|unique:users,tentaikhoan|min:4',
-			'password' => 'required|min:6|max:64',
-			'passwordAgain' => 'required|same:password',
-			'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-		]
-			, [
-				'email.required' => 'Chưa Nhập Email',
-				'email.email' => 'Chưa Đúng Định Dạng Video',
-				'passwordAgain.same' => 'Mật Khẩu Xác Thực Không Dúng',
-			]);
+		// $this->validate($request, [
+		// 	'email' => 'required|email|unique:users,email',
+		// 	'tentaikhoan' => 'required|unique:users,tentaikhoan|min:4',
+		// 	'password' => 'required|min:6|max:64',
+		// 	'passwordAgain' => 'required|same:password',
+		// 	'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		// ]
+		// 	, [
+		// 		'email.required' => 'Chưa Nhập Email',
+		// 		'email.email' => 'Chưa Đúng Định Dạng Video',
+		// 		'passwordAgain.same' => 'Mật Khẩu Xác Thực Không Dúng',
+		// 	]);
 
 		$user = new User;
 		$user->hovaten = $request->fullname;
@@ -60,7 +61,7 @@ class UserController extends Controller {
 		$user->noibat = $request->noibat;
 		$user->level = $request->rdoUser;
 		$user->save();
-		return redirect('user/danhsach')->with('thongbao', 'Them thanh cong');
+		return redirect('admin/user/danhsach')->with('thongbao', 'Them thanh cong');
 
 	}
 	public function getSua($id) {
@@ -75,7 +76,24 @@ class UserController extends Controller {
 	public function getXoa($id) {
 		$user = User::find($id);
 		$user->delete();
-		return redirect('user/danhsach')->with('thongbao', 'Xóa Thành Công');
+		return redirect('admin/user/danhsach')->with('thongbao', 'Xóa Thành Công');
+	}
 
+	public function getAdminLogin() {
+		return view('admin.login');
+	}
+	public function postAdminLogin(Request $request) {
+
+		if (Auth::attempt(['tentaikhoan' => $request->tentaikhoan,
+			'password' => $request->password])) {
+			return redirect('admin/info-page-admin');
+			//return redirect('admin/theloai/danhsach');
+		} else {
+			return redirect('admin/dangnhap');
+		}
+	}
+	public function getAdminLogout() {
+		Auth::logout();
+		return redirect('admin/dangnhap');
 	}
 }

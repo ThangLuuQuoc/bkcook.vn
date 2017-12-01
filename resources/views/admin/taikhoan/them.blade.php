@@ -5,13 +5,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Tài Khoản Người Dùng
-                            <small>Thêm</small>
+                        <h1 class="page-header">Tài Khoản Thành Viên
+                            <small style="color: red;">(Thêm)</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="user/them" method="POST" enctype="multipart/form-data">
+                        <form action="admin/user/them" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             <div class="form-group">
                                 <label>Họ Và Tên</label>
@@ -40,11 +40,11 @@
                             <hr class="alert-warning">
                             <div class="form-group">
                                 <label>Địa Chỉ Gmail</label>
-                                <input type="email" class="form-control" name="email" placeholder="Gmail" required="" />
+                                <input type="email" class="form-control" name="email" placeholder="Gmail" required />
                             </div>
                             <div class="form-group">
                                 <label>Tên Tài Khoản</label>
-                                <input type="text" class="form-control" name="tentaikhoan" placeholder="Tên Đăng Nhập" required="" />
+                                <input type="text" class="form-control" name="tentaikhoan" placeholder="Tên Đăng Nhập" required />
                             </div>
                             <div class="form-group">
                                 <label>Mật Khẩu</label>
@@ -52,23 +52,20 @@
                             </div>
                             <div class="form-group">
                                 <label>Xác Nhận Mật Khẩu</label>
-                                <input id="passa" type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required="" />
+                                <input id="passa" type="password" class="form-control" name="passwordAgain" placeholder="Nhập Lại Mật Khẩu" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
+                                this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" title="Mật khẩu xác nhận không đúng..." />
                             </div>
+
                             <hr class="alert-warning">
 
                             <div class="form-group">
                                 <label>Ảnh Đại Diện<label>
-                                <input type="file" name="anh" class="form-control" required="" />
+                                <input type="file" name="anh" required />
                             </div>
 
                             <div class="form-group">
                                 <label>Nổi Bật</label>
                                 <input type="text" class="form-control" name="noibat" placeholder=""/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Thông Tin Cá Nhân</label>
-                                <textarea class="form-control" rows="3"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Loại Tài Khoản : </label>
@@ -80,11 +77,11 @@
                                 </label>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Thêm Thành Viên</button>
-                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                            <button type="reset"  class="btn btn-warning">Đặt Lại Mặc Định</button>
-
+                            <button type="submit" class="btn btn-success">Lưu</button>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <a  class="btn btn-warning pull-right" href="admin/user/danhsach">Huỷ bỏ</a>
                         <form>
                     </div>
                 </div>
@@ -92,6 +89,7 @@
             </div>
             <!-- /.container-fluid -->
 </div>
+{{-- Script check validate form với JavaScript --}}
 <script type="text/javascript">
 
 </script>

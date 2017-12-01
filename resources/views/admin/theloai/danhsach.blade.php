@@ -37,7 +37,7 @@
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{$ds -> id}}</td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->ten}}">{{$ds -> ten}}</td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->tenkhongdau}}">{{$ds -> tenkhongdau}}</td>
-                         <td><img src="uploads/theloai/{{$ds->anh}}" alt="" width="50px" height="50px"></td>
+                         <td><img src="{{$ds->anh}}" alt="" width="50px" height="50px"></td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->created_at}}">{{$ds -> created_at}}</td>
                         <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"  title="{{$ds->updated_at}}">{{$ds -> updated_at}}</td>                                
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('xoaTheLoai', $ds -> id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa?')""> Xóa</a></td>

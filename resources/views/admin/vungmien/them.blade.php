@@ -29,20 +29,24 @@
                                 <label>Tên vùng miền</label>
                                 <input class="form-control" name="ten" required placeholder="nhập tên vùng miền"/>
                             </div>
-                             <div class="form-group">
-                                <label>Ảnh Đại Diện<label>
-                                <input type="file" name="anh" class="form-control" />
-                            </div>
+                            <div class="form-group">
+                                  <label for="files" class="btn bg-info">Chọn ảnh đại diện</label>
+                                  <input id="files" style="visibility:hidden;" required type="file" name="anh">
+                             </div>
                             <div class="form-group">
                                 <label>vị trí</label>
-                                <input class="form-control" name="vitri" required placeholder="vị trí"/>
+                                <input class="form-control" name="vitri" placeholder="vị trí"/>
                             </div>
                             <div class="form-group">
                                 <label>giới thiệu</label><br>
-                                <textarea cols="80" rows="6" name="gioithieu" required></textarea>
+                                <textarea cols="80" rows="6" name="gioithieu" ></textarea>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
+                           <div class="form-group" >
+                                <div class="col-md-4 col-md-offset-3 container-fluid">
+                                    <button type="submit" class="btn btn-primary pull-left">Thêm</button>
+                                    <a class="btn btn-warning pull-right"" href="{{route('danhSachVungMien')}}">Huỷ bỏ</a>
+                                </div>
+                            </div>
                         <form>
                     </div>
                 </div>

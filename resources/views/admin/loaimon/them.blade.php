@@ -38,12 +38,16 @@
                                </select>
 
                             </div>
-                             <div class="form-group">
-                                <label>Ảnh Đại Diện<label>
-                                <input type="file" name="anh" required class="form-control" />
+                            <div class="form-group">
+                              <label for="files" class="btn bg-info">Chọn ảnh đại diện</label>
+                              <input id="files" style="visibility:hidden;" required type="file" name="anh">
+                             </div>
+                            <div class="form-group" >
+                                <div class="col-md-4 col-md-offset-3 container-fluid">
+                                    <button type="submit" class="btn btn-primary pull-left">Thêm</button>
+                                    <a  class="btn btn-warning pull-right" href="{{route('danhSachLoaiMon')}}">Huỷ bỏ</a>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm</button>
-                             <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Huỷ bỏ</button>
                         <form>
                     </div>
                 </div>

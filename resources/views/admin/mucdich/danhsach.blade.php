@@ -37,7 +37,7 @@
                             <tr class="even gradeC" align="center">
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$md->ten}}">{{$md->ten}}</td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$md->tenkhongdau}}">{{$md->tenkhongdau}}</td>
-                                <td> <img src="uploads/mucdich/{{$md->anh}}" alt="" width="50px" height="50px"></td>
+                                <td> <img src="{{$md->anh}}" alt="" width="50px" height="50px"></td>
                                 <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="{{$md->created_at}}">{{$md->created_at}}</td>
                                 <td class="center text-info"><i class="fa fa-trash-o fa-fw"></i><a href="{{route('xoaMucDich',$md->id)}}" onclick="return confirm('bạn có muốn xoá không?');">Xoá</a></td>
 

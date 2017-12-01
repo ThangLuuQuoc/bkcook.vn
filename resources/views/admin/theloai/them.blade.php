@@ -24,17 +24,22 @@
             <div class="col-lg-7" style="padding-bottom:120px">
                 <form name="themTheLoai" action="{{route('themTheLoai')}}" enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label>Tên thể loại</label>
                         <input class="form-control" name="ten" placeholder="Nhập tên thể loại" required="" />
                     </div>
-                     <div class="form-group">
-                        <label>Ảnh Đại Diện<label>
-                        <input type="file" name="anh" class="form-control" />
+                    <div class="form-group">
+                          <label for="files" class="btn bg-info">Chọn ảnh đại diện</label>
+                          <input id="files" style="visibility:hidden;" required type="file" name="anh">
                     </div>
-                    <button type="submit" class="btn btn-default">Thêm</button>
-                    <button type="button" class="btn btn-default" onclick="window.location='{{ URL::previous() }}'">Cancel</button>
-                    <form>
+                    <div class="form-group" >
+                                <div class="col-md-4 col-md-offset-3 container-fluid">
+                                    <button type="submit" class="btn btn-primary pull-left">Thêm</button>
+                                    <a class="btn btn-warning pull-right" href="{{route('danhSachTheLoai')}}">Huỷ bỏ</a>
+                                </div>
+                    </div>
+                    
+                <form>
                     </div>
                 </div>
                 <!-- /.row -->
